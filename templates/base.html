@@ -15,6 +15,12 @@
     {% block corecss %}
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
     {% block extra_css %}
@@ -37,7 +43,7 @@
 
   <body>
     <header class="container-fluid fixed-top">
-      <div class="row">
+      <div id="topnav" class="row bg-black pt-lg-2 d-none d-lg-flex">
         <!-- Logo -->
         <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
         <a href="{% url 'home' %}" class="nav-link main-logo-link">
@@ -66,8 +72,8 @@
               <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
                 <div class="text-center">
-                  <div><i class="fas fa-user fa-lg"></i></div>
-                  <p class="my-0">My Account</p>
+                  <div><i class="fas fa-user fa-lg nav-icon"></i></div>
+                  <p class="my-0 nav-text">Account</p>
                 </div>
               </a>
               <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -86,8 +92,8 @@
             <li class="list-inline-item">
               <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
                 <div class="text-center">
-                  <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                  <p class="my-0">
+                  <div><i class="fas fa-shopping-bag fa-lg nav-icon"></i></div>
+                  <p class="my-0 nav-text">
                     {% if grand_total %}
                       ${{ grand_total|floatformat:2 }}
                     {% else %}

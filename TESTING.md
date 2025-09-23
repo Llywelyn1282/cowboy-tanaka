@@ -48,36 +48,36 @@ Testing was focused to ensure the following criteria were met:
 
 #### __Home Page__
 
-![Home Page](static/images/home-lighthouse.png)
+![Home Page](static/media/home-lighthouse.png)
 
 #### __Info Page__
 
-![Info Page](static/images/info-lighthouse.png)
+![Info Page](static/media/info-lighthouse.png)
 
 #### __News Page__
 
-![News Page](static/images/news-lighthouse.png)
+![News Page](static/media/news-lighthouse.png)
 
 #### __Tour Dates Page__
 
-![Tour Dates Page](static/images/tour-dates-lighthouse.png)
+![Tour Dates Page](static/media/tour-dates-lighthouse.png)
 
 #### __Sign Up Page__
 
-![Sign Up](static/images/signup-lighthouse.png)
+![Sign Up](static/media/signup-lighthouse.png)
 
 #### __Sign In Page__
 
-![Sign In](static/images/signin-lighthouse.png)
+![Sign In](static/media/signin-lighthouse.png)
 
 #### __Sign Out Page__
 
-![Sign Out](static/images/signout-lighthouse.png)
+![Sign Out](static/media/signout-lighthouse.png)
 
 
 ### Testing User Stories
 
-| Goals                 | How are they achieved? |
+| Goals                 | How are they achiemedia
 | --------------------- | ---------------------- | 
 
 
@@ -92,23 +92,23 @@ Testing was focused to ensure the following criteria were met:
 HTML
   - No errors were returned when passing through the official [W3C Validator](https://validator.w3.org)
 
-  ![Home HTML Validator Results](static/images//home-validation.png)
+  ![Home HTML Validator Results](static/media/home-validation.png)
 
-  ![About HTML Validator Results](static/images/about-validation.png)
+  ![About HTML Validator Results](static/media/about-validation.png)
 
-  ![Contact HTML Validator Results](static/images/contact-validation.png)
+  ![Contact HTML Validator Results](static/media/contact-validation.png)
 
 CSS
   - No errors were found when passing through the official [Jigsaw Validator](https://jigsaw.w3.org)
   
-  ![CSS Validator Results](static/images/css-validation.png)
+  ![CSS Validator Results](static/media/css-validation.png)
 
 JavaScript
  - No errors were found when passing through the official [JSHint Validator](https://www.jshint.com/)
   
-  ![JavaScript Validator Results ](static/images/filters-validation.png)
+  ![JavaScript Validator Results ](static/media/filters-validation.png)
 
-  ![JavaScript Validator Results ](static/images/comments-validation.png)
+  ![JavaScript Validator Results ](static/media/comments-validation.png)
 
 Python
 - No errors were found when passing through the Code Institute Python Linter [Python Validator](https://pep8ci.herokuapp.com/)
