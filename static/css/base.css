@@ -13,6 +13,27 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
+.navbar-toggler {
+    border-color: white;
+    border-width: 3px;
+}
+
+/* Change the navbar toggler icon */ 
+.navbar-toggler-icon {
+    background-image: none;
+}
+
+.navbar-toggler-icon::after { 
+    font-family: 'FontAwesome';
+    content: '\f6f0';
+    color: white;
+}
+
+.navbar-toggler {
+            border-color: white;
+        }
+
+
 /* from Bulma */
 .icon {
     align-items: center;
