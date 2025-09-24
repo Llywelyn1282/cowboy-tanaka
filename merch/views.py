@@ -3,7 +3,6 @@ from django.contrib import messages
 from django.db.models import Q
 from .models import Merch
 
-# Create your views here.
 
 def all_merch(request):
     """ A view to show all merch, including sorting and search queries """
@@ -17,9 +16,13 @@ def all_merch(request):
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('merch'))
-            
+
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             merch = merch.filter(queries)
+
+    category = request.GET.get('category')
+    if category:
+        merch = merch.filter(category__name__iexact=category)
 
     context = {
         'merch': merch,
