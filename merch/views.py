@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Merch
 
 
@@ -12,3 +12,15 @@ def all_merch(request):
     }
 
     return render(request, 'merch/merch.html', context)
+
+
+def merch_detail(request, merch_id):
+    """ A view to show individual merch detail """
+
+    merch = get_object_or_404(Merch, pk=merch_id)
+
+    context = {
+        'merch': merch,
+    }
+
+    return render(request, 'merch/merch_detail.html', context)
