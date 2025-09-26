@@ -2,41 +2,43 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
+<div class="container header-container">
+  <div class="row">
+    <div class="col"></div>
+  </div>
+</div>
 {% endblock %}
 
 {% block content %}
-    <div class="content-container">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col text-center mt-3">
-                <h2 class="logo-heading">tour dates</h2>
-                <br>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-10 offset-1">
-                <div class="row mt-1 mb-2"></div>
-                <div class="row">
-                    {% for tour_dates in tour_dates %}
-                        <div class="col-12">
-                            <div class="h-100 border-0">
-                                <div class="pb-0">
-                                    <p class="mb-0">{{ tour_dates.date }} | {{ tour_dates.venue }}, {{ tour_dates.location }}</p>
-                                    <p class="mb-0 text-left">with support from {{ tour_dates.support_act }}</p>
-                                    <br>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-
+<div class="content-container">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col text-center mt-3">
+        <h2 class="logo-heading">tour dates</h2>
+        <br />
+      </div>
     </div>
+
+    {% for tour_dates in tour_dates %}
+    <div class="row align-items-center m-1 p-3 mb-3 border rounded shadow-sm">
+      <div class="col-3">
+        <p class="mb-0">{{ tour_dates.date }}</p>
+      </div>
+      <div class="col-3">
+        <p class="mb-0">{{ tour_dates.venue }}, {{ tour_dates.location }}</p>
+      </div>
+      <div class="col-3">
+        <p class="mb-0">with support from {{ tour_dates.support_act }}</p>
+      </div>
+      <div class="col-3 text-center">
+        <a
+          href="{% url 'merch' %}"
+          class="shop-now-button btn rounded-0 py-3 logo-heading">
+          buy tickets
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}
