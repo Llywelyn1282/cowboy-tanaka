@@ -3,7 +3,7 @@
     <a class="nav-link d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="text-center">
             <div class="nav-icon"><i class="fas fa-search fa-lg"></i></div>
-            <p class="my-0 nav-text">Search</p>
+            <p class="my-0 nav-text logo-heading">Search</p>
         </div>
     </a>
     <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
@@ -26,19 +26,19 @@
     <a class="nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="text-center">
             <div class="nav-icon"><i class="fas fa-user fa-lg"></i></div>
-            <p class="my-0 nav-text">Account</p>
+            <p class="my-0 nav-text logo-heading">account</p>
         </div>
     </a>
     <div class="dropdown-menu border-0" aria-labelledby="user-options">
         {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
-                <a href="" class="dropdown-item">Product Management</a>
+                <a href="" class="dropdown-item logo-heading-blk">product management</a>
             {% endif %}
-            <a href="" class="dropdown-item">My Profile</a>
-            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+            <a href="" class="dropdown-item logo-heading-blk">my profile</a>
+            <a href="{% url 'account_logout' %}" class="dropdown-item logo-heading-blk">logout</a>
         {% else %}
-            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+            <a href="{% url 'account_signup' %}" class="dropdown-item logo-heading-blk">register</a>
+            <a href="{% url 'account_login' %}" class="dropdown-item logo-heading-blk">login</a>
         {% endif %}
     </div>
 </li>
@@ -47,7 +47,7 @@
     <a class="{% if grand_total %}text-primary font-weight-bold{% else %}{% endif %} nav-link d-block d-lg-none" href="">
         <div class="text-center">
             <div class="nav-icon"><i class="fas fa-shopping-bag fa-lg"></i></div>
-            <p class="my-0 nav-text">
+            <p class="my-0 nav-text logo-heading">
                 {% if grand_total %}
                     ${{ grand_total|floatformat:2 }}
                 {% else %}

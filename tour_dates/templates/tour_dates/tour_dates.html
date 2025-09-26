@@ -26,50 +26,17 @@
                     {% for tour_dates in tour_dates %}
                         <div class="col-12">
                             <div class="h-100 border-0">
-                                {% if tour_dates.image %}
-                                <a href="">
-                                    <img class="card-img-top img-fluid" src="{{ tour_dates.image.url }}" alt="{{ tour_dates.venue }}">
-                                </a>
-                                {% else %}
-                                <a href="">
-                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ tour_dates.venue }}">
-                                </a>
-                                {% endif %}
-                                <div class="card-body pb-0">
+                                <div class="pb-0">
                                     <p class="mb-0">{{ tour_dates.date }} | {{ tour_dates.venue }}, {{ tour_dates.location }}</p>
-                                </div>
-                                <div class="pt-0 border-0 text-left">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="lead mb-0 text-left font-weight-bold">with support from {{ tour_dates.support_act }}</p>
-                                        </div>
-                                    </div>
+                                    <p class="mb-0 text-left">with support from {{ tour_dates.support_act }}</p>
+                                    <br>
                                 </div>
                             </div>
                         </div>
-                        {% if forloop.counter|divisibleby:1 %}
-                            <div class="col-12 d-sm-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}                        
-                        {% if forloop.counter|divisibleby:2 %}
-                            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:3 %}
-                            <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:4 %}
-                            <div class="col-12 d-none d-xl-block mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
                     {% endfor %}
                 </div>
             </div>
         </div>
+
     </div>
 {% endblock %}

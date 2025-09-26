@@ -77,19 +77,19 @@
                 aria-expanded="false">
                 <div class="text-center">
                   <div><i class="fas fa-user fa-lg nav-icon"></i></div>
-                  <p class="my-0 nav-text">account</p>
+                  <p class="my-0 logo-heading">account</p>
                 </div>
               </a>
               <div class="dropdown-menu border-0" aria-labelledby="user-options">
                 {% if request.user.is_authenticated %}
                 {% if request.user.is_superuser %}
-                <a href="" class="dropdown-item">product management</a>
+                <a href="" class="dropdown-item logo-heading-blk">product management</a>
                 {% endif %}
-                <a href="" class="dropdown-item">my profile</a>
-                <a href="{% url 'account_logout' %}" class="dropdown-item">logout</a>
+                <a href="" class="dropdown-item logo-heading-blk">my profile</a>
+                <a href="{% url 'account_logout' %}" class="dropdown-item logo-heading-blk">logout</a>
                 {% else %}
-                <a href="{% url 'account_signup' %}" class="dropdown-item">register</a>
-                <a href="{% url 'account_login' %}" class="dropdown-item">login</a>
+                <a href="{% url 'account_signup' %}" class="dropdown-item logo-heading-blk">register</a>
+                <a href="{% url 'account_login' %}" class="dropdown-item logo-heading-blk">login</a>
                 {% endif %}
               </div>
             </li>
@@ -98,7 +98,7 @@
               <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
                 <div class="text-center">
                   <div><i class="fas fa-shopping-bag fa-lg nav-icon"></i></div>
-                  <p class="my-0 nav-text">
+                  <p class="my-0 nav-text logo-heading">
                     {% if grand_total %}
                       £{{ grand_total|floatformat:2 }}
                     {% else %}

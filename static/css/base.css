@@ -7,11 +7,15 @@ html {
 
 body {
     background: url('../media/background-image.jpg') no-repeat center center fixed;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
     background-blend-mode: overlay;
     background-size: cover;
     font-family: 'Inter', sans-serif;
     color: white;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .card {
@@ -25,7 +29,7 @@ img {
 }
 
 .content-container {
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.3);
     width: 90%;
     margin: 0 auto;
 }
@@ -77,14 +81,19 @@ img {
     color: white;
 }
 
+.logo-heading-blk {
+    font-family: 'Outfit', sans-serif;
+    text-transform: lowercase;
+    color: black;
+}
+
 .main-logo-link {
     width: fit-content;
 }
 
 .shop-now-button {
-    background: black;
-    color: white;
-    min-width: 260px;
+    background: white;
+    color: black;
 }
 
 .btn-black {
