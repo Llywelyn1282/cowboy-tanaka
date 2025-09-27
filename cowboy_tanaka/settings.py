@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'news',
     'tour_dates',
     'merch',
+    'bag',
 ]
 
 MIDDLEWARE = [

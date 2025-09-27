@@ -15,7 +15,7 @@ def all_tour_dates(request):
 
 
 def event_detail(request, tour_dates_id):
-    """ A view to show individual news post details """
+    """ A view to show individual event details """
 
     tour_dates = get_object_or_404(Tour_Dates, pk=tour_dates_id)
 

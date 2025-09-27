@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="content-container">
+    <div class="container mb-2">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class="logo-heading mb-4">shopping bag</h2>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                {% if bag_items %}
+                <div class="table-responsive rounded d-none d-md-block">
+                {% else %}
+                    <p class="lead mb-5">your bag is empty.</p>
+                    <a href="{% url 'merch' %}" class="shop-now-button btn btn-lg rounded-0 py-3 logo-heading mt-4">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span>keep shopping</span>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
