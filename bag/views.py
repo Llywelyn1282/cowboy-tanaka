@@ -6,17 +6,24 @@ def view_bag(request):
 
     return render(request, 'bag/bag.html')
 
-def add_to_bag(request, item_id):
-    """ Add a quantity of the specified product to the shopping bag """
 
-    quantity = int(request.POST.get('quantity'))
-    redirect_url = request.POST.get('redirect_url')
+def add_to_bag(request, item_type, item_id):
+    """
+    Add a quantity of a merch or tour ticket to the session bag.
+    item_type: 'merch' or 'tour'
+    item_id: primary key of the item
+    """
     bag = request.session.get('bag', {})
 
-    if item_id in list(bag.keys()):
-        bag[item_id] += quantity
+    key = f"{item_type}_{item_id}"  # always store in new format
+    quantity = int(request.POST.get('quantity', 1))
+
+    if key in bag:
+        bag[key] += quantity
     else:
-        bag[item_id] = quantity
+        bag[key] = quantity
 
     request.session['bag'] = bag
-    return redirect(redirect_url)
+    request.session.modified = True
+
+    return redirect('bag:view_bag')
