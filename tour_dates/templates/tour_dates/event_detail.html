@@ -31,6 +31,7 @@
                     <p class="mb-0">{{ tour_dates.venue }}</p>
                     <p class="lead mb-0 text-left font-weight-bold">{{ tour_dates.location }} | {{ tour_dates.date }}</p>
                     <p> with support from {{ tour_dates.support_act}} </p>
+                    <p>£{{ tour_dates.price}} </p>
                     <form class="form" action="{% url 'add_to_bag' tour_dates.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
