@@ -15,7 +15,7 @@ def bag_contents(request):
     product_count = 0
     bag = request.session.get('bag', {})
 
-    for key, quantity in bag.items():
+    for key, item_data in bag.items():
         # new format e.g. "merch_1" or "tour_5"
         if '_' in key:
             item_type, item_id = key.split('_')
@@ -29,26 +29,38 @@ def bag_contents(request):
                     merch = get_object_or_404(Merch, pk=item_id)
                 except:
                     continue  # skip missing item
-                total += quantity * merch.price
-                product_count += quantity
-                bag_items.append({
-                    'item_id': key,
-                    'quantity': quantity,
-                    'merch': merch,
-                    'tour_dates': None,
-                })
+                if isinstance(item_data, int):
+                    merch = get_object_or_404(Merch, pk=item_id)
+                    total += item_data * merch.price
+                    product_count += item_data
+                    bag_items.append({
+                        'item_id': item_id,
+                        'quantity': item_data,
+                        'merch': merch,
+                    })
+            
+                else:
+                    merch = get_object_or_404(Merch, pk=item_id)
+                    for size, quantity in item_data['items_by_size'].items():
+                        total += quantity * merch.price
+                        product_count += quantity
+                        bag_items.append({
+                            'item_id': key,
+                            'quantity': item_data,
+                            'merch': merch,
+                            'size': size,
+                        })
 
             elif item_type == 'tour':
                 try:
                     tour_date = get_object_or_404(Tour_Dates, pk=item_id)
                 except:
                     continue  # skip missing item
-                total += quantity * tour_date.price
-                product_count += quantity
+                total += item_data * tour_date.price
+                product_count += item_data
                 bag_items.append({
                     'item_id': key,
-                    'quantity': quantity,
-                    'merch': None,
+                    'quantity': item_data,
                     'tour_dates': tour_date,
                 })
 
