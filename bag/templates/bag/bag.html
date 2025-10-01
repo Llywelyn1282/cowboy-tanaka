@@ -38,9 +38,9 @@
                     <tr>
                         <td class="p-3 w-25">
                             {% if item.merch and item.merch.image %}
-                                <img class="img-fluid rounded" src="{{ item.merch.image.url }}">
+                                <img class="img-fluid rounded" src="{{ item.merch.image.url }}" alt="{{ item.merch.name }}">
                             {% elif item.tour_dates and item.tour_dates.image %}
-                                <img class="img-fluid rounded" src="{{ item.tour_dates.image.url }}">
+                                <img class="img-fluid rounded" src="{{ item.tour_dates.image.url }}" alt="{{ item.tour_dates.venue }}">
                             {% else %}
                                 <img class="img-fluid rounded" src="{% static 'media/no-image.jpg' %}">
                             {% endif %}
@@ -48,7 +48,7 @@
                         <td class="py-3">
                             {% if item.merch %}
                                 <p class="my-0"><strong>{{ item.merch.name }}</strong></p>
-                                <p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
+                                <p class="my-0"><strong>Size: </strong>{% if item.merch.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
                                 <p class="my-0 small">SKU: {{ item.merch.sku|upper }}</p>
                             {% elif item.tour_dates %}
                                 <p class="my-0"><strong>{{ item.tour_dates.venue }}, {{ item.tour_dates.location }}</strong></p>
@@ -87,8 +87,8 @@
                                                     </span>
                                                 </button>
                                             </div>
-                                            {% if item.product.has_sizes %}
-                                                <input type="hidden" name="product_size" value="{{ item.size }}">
+                                            {% if item.merch.has_sizes %}
+                                                <input type="hidden" name="merch_size" value="{{ item.size }}">
                                             {% endif %}
                                         </div>
                                     </div>
@@ -163,7 +163,7 @@
         var itemId = $(this).attr('id').split('remove_')[1];
         var size = $(this).data('size');
         var url = `/bag/remove/${itemId}`;
-        var data = {'csrfmiddlewaretoken': csrfToken, 'size': size};
+        var data = {'csrfmiddlewaretoken': csrfToken, 'merch_size': size};
         $.post(url, data)
          .done(function() {
              location.reload();
