@@ -29,23 +29,27 @@ def bag_contents(request):
                     merch = get_object_or_404(Merch, pk=item_id)
                 except:
                     continue  # skip missing item
+
+                # merch without sizes
                 if isinstance(item_data, int):
-                    merch = get_object_or_404(Merch, pk=item_id)
                     total += item_data * merch.price
                     product_count += item_data
                     bag_items.append({
-                        'item_id': item_id,
-                        'quantity': item_data,
-                        'merch': merch,
-                    })
-            
+                            'item_type': 'merch',
+                            'item_id': item_id,
+                            'quantity': item_data,
+                            'merch': merch,
+                            'size': None,  # if exists
+                            })
+
+                # merch with sizes
                 else:
-                    merch = get_object_or_404(Merch, pk=item_id)
                     for size, quantity in item_data['items_by_size'].items():
                         total += quantity * merch.price
                         product_count += quantity
                         bag_items.append({
-                            'item_id': key,
+                            'item_type': 'merch',
+                            'item_id': item_id,
                             'quantity': quantity,
                             'merch': merch,
                             'size': size,
@@ -59,10 +63,12 @@ def bag_contents(request):
                 total += item_data * tour_date.price
                 product_count += item_data
                 bag_items.append({
-                    'item_id': key,
-                    'quantity': item_data,
-                    'tour_dates': tour_date,
-                })
+                        'item_type': 'tour',
+                        'item_id': item_id,
+                        'quantity': item_data,
+                        'tour_dates': tour_date,
+                        'size': None,
+                        })
 
 
     delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)

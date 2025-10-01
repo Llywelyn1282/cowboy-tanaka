@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from django.urls import reverse
 
 
 def view_bag(request):
@@ -8,7 +10,7 @@ def view_bag(request):
 
 def add_to_bag(request, item_type, item_id):
     """
-    Add a quantity of the specified product (merch or tour  ticket) to the session bag.
+    Add a quantity of the specified product (merch or tour ticket) to the session bag.
 
     Parameters:
     - item_type: 'merch' or 'tour'
@@ -40,3 +42,60 @@ def add_to_bag(request, item_type, item_id):
     request.session.modified = True
 
     return redirect(redirect_url)
+
+
+def adjust_bag(request, item_type, item_id):
+    """ Adjust the quantity of the specified product to the specified amount """
+
+    quantity = int(request.POST.get('quantity'))
+    size = None
+    if 'product_size' in request.POST:
+        size = request.POST['merch_size']
+    bag = request.session.get('bag', {})
+    key = f"{item_type}_{item_id}"
+
+    if size:
+        if quantity > 0:
+            bag[key]['items_by_size'][size] = quantity
+        else:
+            del bag[key]['items_by_size'][size]
+            if not bag[key]['items_by_size']:
+                bag.pop(key)
+    else:
+        if quantity > 0:
+            bag[key] = quantity
+        else:
+            bag.pop(key)
+
+    request.session['bag'] = bag
+    request.session.modified = True
+
+    return redirect(reverse('bag:view_bag'))
+
+
+def remove_from_bag(request, item_type, item_id):
+    """ Remove an item from the shopping bag """
+    try:
+        bag = request.session.get('bag', {})
+        key = f"{item_type}_{item_id}"
+        size = request.POST.get('merch_size', None)
+
+        if key not in bag:
+            return HttpResponse("Item not found in bag", status=404)
+
+        # Item with sizes
+        if isinstance(bag[key], dict) and 'items_by_size' in bag[key]:
+            if size and size in bag[key]['items_by_size']:
+                del bag[key]['items_by_size'][size]
+            if not bag[key]['items_by_size']:
+                bag.pop(key)
+        else:
+            # Item without sizes
+            bag.pop(key)
+
+        request.session['bag'] = bag
+        request.session.modified = True
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        return HttpResponse(f"Error removing item: {str(e)}", status=500)
