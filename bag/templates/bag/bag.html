@@ -1,5 +1,6 @@
 {% extends "base.html" %} 
-{% load static %} 
+{% load static %}
+{% load bag_tools %}
 
 {% block page_header %}
 
@@ -124,13 +125,13 @@
                     data-item_id="{{ item.item_id }}" data-merch_size="{{ item.size }}">
                 <small>Remove</small></a>
             </td>
+            <!-- Subtotal -->
             <td class="py-3">
-                <p class="my-0">£{{ item.merch.price }}</p>
+                <p class="my-0">£{{ item.merch.price | calc_subtotal:item.quantity }}</p>
             </td>
         </tr>
     {% endfor %}
 
-              <!-- Subtotal -->
               <td class="py-3">
                 {% if item.merch %}
                 <p class="my-0">
