@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.urls import reverse
+from django.shortcuts import render, redirect, reverse, HttpResponse
+from django.contrib import messages
+
+from merch.models import Merch
+from tour_dates.models import Tour_Dates
 
 
 def view_bag(request):
@@ -11,18 +13,20 @@ def view_bag(request):
 def add_to_bag(request, item_type, item_id):
     """
     Add a quantity of the specified product (merch or tour ticket) to the session bag.
-
-    Parameters:
-    - item_type: 'merch' or 'tour'
-    - item_id: primary key of the item
     """
+    bag = request.session.get('bag', {})
     quantity = int(request.POST.get('quantity', 1))
     redirect_url = request.POST.get('redirect_url', 'bag:view_bag')
     size = request.POST.get('merch_size', None)
 
-    bag = request.session.get('bag', {})
-
     key = f"{item_type}_{item_id}"  # Store key in consistent format
+
+    if item_type == "merch":
+        item = Merch.objects.get(pk=item_id)
+    elif item_type == "tour":
+        item = Tour_Dates.objects.get(pk=item_id)
+    else:
+        return HttpResponse("Invalid item type", status=400)
 
     if size:
         if key in bag:
@@ -38,10 +42,16 @@ def add_to_bag(request, item_type, item_id):
         else:
             bag[key] = quantity
 
+    if item_type == "merch":
+        messages.success(request, f'Added {item.name} to your bag.')
+    elif item_type == "tour":
+        messages.success(request, f'Added tickets for Cowboy Tanaka at {item.venue}, {item.location} to your bag.')
+
     request.session['bag'] = bag
     request.session.modified = True
 
     return redirect(redirect_url)
+
 
 
 def adjust_bag(request, item_type, item_id):
