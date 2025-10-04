@@ -36,10 +36,7 @@ class Order(models.Model):
         accounting for delivery costs.
         """
         self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
-        if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
-            self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
-        else:
-            self.delivery_cost = 0
+        self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
 
@@ -68,15 +65,17 @@ class OrderLineItem(models.Model):
         """Calculate the line item total based on type"""
         if self.merch:
             price = self.merch.price
-        else self.tour_dates:
+        elif self.tour_dates:
             price = self.tour_dates.price
+        else:
+            price = Decimal('0.00')
 
         self.lineitem_total = price * self.quantity
         super().save(*args, **kwargs)
 
         def __str__(self):
-        if self.merch:
-            return f'{self.quantity} x {self.merch.name} (Order {self.order.order_number})'
-        elif self.tour_dates:
-            return f'{self.quantity} x {self.tour_dates.venue} (Order {self.order.order_number})'
-        return f'Item (Order {self.order.order_number})'
+            if self.merch:
+                return f'{self.quantity} x {self.merch.name} (Order {self.order.order_number})'
+            elif self.tour_dates:
+                return f'{self.quantity} x {self.tour_dates.venue} (Order {self.order.order_number})'
+            return f'Item (Order {self.order.order_number})'
