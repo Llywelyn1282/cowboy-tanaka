@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404
 from merch.models import Merch
 from tour_dates.models import Tour_Dates
 
+
 def bag_contents(request):
     """
     Context processor that returns the shopping bag contents.
@@ -32,20 +33,24 @@ def bag_contents(request):
 
                 # merch without sizes
                 if isinstance(item_data, int):
-                    total += item_data * merch.price
+                    subtotal = item_data * merch.price
+                    total += subtotal
                     product_count += item_data
                     bag_items.append({
                             'item_type': 'merch',
                             'item_id': item_id,
                             'quantity': item_data,
                             'merch': merch,
-                            'size': None,  # if exists
+                            'size': None,
+                            'price': merch.price,
+                            'subtotal': subtotal,
                             })
 
                 # merch with sizes
                 else:
                     for size, quantity in item_data['items_by_size'].items():
-                        total += quantity * merch.price
+                        subtotal = quantity * merch.price
+                        total += subtotal
                         product_count += quantity
                         bag_items.append({
                             'item_type': 'merch',
@@ -53,6 +58,8 @@ def bag_contents(request):
                             'quantity': quantity,
                             'merch': merch,
                             'size': size,
+                            'price': merch.price,
+                            'subtotal': subtotal,
                         })
 
             elif item_type == 'tour':
@@ -60,7 +67,8 @@ def bag_contents(request):
                     tour_date = get_object_or_404(Tour_Dates, pk=item_id)
                 except:
                     continue  # skip missing item
-                total += item_data * tour_date.price
+                subtotal = item_data * tour_date.price
+                total += subtotal
                 product_count += item_data
                 bag_items.append({
                         'item_type': 'tour',
@@ -68,8 +76,9 @@ def bag_contents(request):
                         'quantity': item_data,
                         'tour_dates': tour_date,
                         'size': None,
+                        'price': tour_date.price,
+                        'subtotal': subtotal,
                         })
-
 
     delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
     grand_total = delivery + total
