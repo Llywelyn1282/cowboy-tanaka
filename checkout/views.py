@@ -58,21 +58,30 @@ def checkout(request):
 
                     # Handle quantities and sizes
                     if isinstance(item_data, int):
+                        price = product.price
+                        line_total = item_data * price
+
                         order_line_item = OrderLineItem(
                             order=order,
                             merch=product if item_type == 'merch' else None,
                             tour_dates=product if item_type == 'tour' else None,
                             quantity=item_data,
+                            lineitem_total=line_total,
                         )
                         order_line_item.save()
+
                     elif isinstance(item_data, dict) and 'items_by_size' in item_data:
                         for size, quantity in item_data['items_by_size'].items():
+                            price = product.price
+                            line_total = item_data * price
+
                             order_line_item = OrderLineItem(
                                 order=order,
                                 merch=product if item_type == 'merch' else None,
                                 tour_dates=product if item_type == 'tour' else None,
                                 product_size=size,
                                 quantity=quantity,
+                                lineitem_total=line_total,
                             )
                             order_line_item.save()
                     else:

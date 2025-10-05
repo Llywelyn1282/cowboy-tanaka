@@ -55,7 +55,6 @@ def add_to_bag(request, item_type, item_id):
     return redirect(redirect_url)
 
 
-
 def adjust_bag(request, item_type, item_id):
     """ Adjust the quantity of the specified product to the specified amount """
 
@@ -66,7 +65,6 @@ def adjust_bag(request, item_type, item_id):
     bag = request.session.get('bag', {})
     key = f"{item_type}_{item_id}"
     redirect_url = request.POST.get('redirect_url') or reverse('bag:view_bag')
-
 
     if size:
         if quantity > 0:
