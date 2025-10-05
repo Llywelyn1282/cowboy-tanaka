@@ -9,6 +9,7 @@ from tour_dates.models import Tour_Dates
 from bag.contexts import bag_contents
 
 import stripe
+from decimal import Decimal
 
 
 def checkout(request):
@@ -29,21 +30,21 @@ def checkout(request):
             'street_address2': request.POST['street_address2'],
             'county': request.POST['county'],
         }
+
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order = order_form.save()
+            order = order_form.save(commit=False)
+            order.save()
 
-            # --- Safe bag handling ---
+            order_total = Decimal('0.00')
+
             for item_id, item_data in bag.items():
                 try:
-                    # Determine item_type safely
+                    # Determine item_type
                     if isinstance(item_data, dict) and 'item_type' in item_data:
                         item_type = item_data['item_type']
-                    elif isinstance(item_id, str):
-                        if item_id.startswith('tour_'):
-                            item_type = 'tour'
-                        else:
-                            item_type = 'merch'
+                    elif isinstance(item_id, str) and item_id.startswith('tour_'):
+                        item_type = 'tour'
                     else:
                         item_type = 'merch'
 
@@ -51,15 +52,13 @@ def checkout(request):
                     numeric_id = int(item_id.split('_')[-1]) if isinstance(item_id, str) else item_id
 
                     # Fetch product
-                    if item_type == 'merch':
-                        product = Merch.objects.get(pk=numeric_id)
-                    else:  # tour
-                        product = Tour_Dates.objects.get(pk=numeric_id)
+                    product = Merch.objects.get(pk=numeric_id) if item_type == 'merch' else Tour_Dates.objects.get(pk=numeric_id)
+                    price = product.price
 
-                    # Handle quantities and sizes
+                    # CASE 1 — simple item (no sizes)
                     if isinstance(item_data, int):
-                        price = product.price
-                        line_total = item_data * price
+                        line_total = Decimal(item_data) * price
+                        order_total += line_total
 
                         order_line_item = OrderLineItem(
                             order=order,
@@ -70,10 +69,11 @@ def checkout(request):
                         )
                         order_line_item.save()
 
+                    # CASE 2 — item has sizes
                     elif isinstance(item_data, dict) and 'items_by_size' in item_data:
                         for size, quantity in item_data['items_by_size'].items():
-                            price = product.price
-                            line_total = item_data * price
+                            line_total = Decimal(quantity) * price
+                            order_total += line_total
 
                             order_line_item = OrderLineItem(
                                 order=order,
@@ -84,6 +84,7 @@ def checkout(request):
                                 lineitem_total=line_total,
                             )
                             order_line_item.save()
+
                     else:
                         continue
 
@@ -95,12 +96,17 @@ def checkout(request):
                     order.delete()
                     return redirect(reverse('view_bag'))
 
-            # Save info checkbox
+            # --- Update order totals ---
+            order.order_total = order_total
+            order.delivery_cost = Decimal('0.00')  # update if you have a delivery threshold
+            order.grand_total = order_total + order.delivery_cost
+            order.save()
+
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
+
         else:
-            messages.error(request, 'There was an error with your form. \
-                Please double check your information.')
+            messages.error(request, 'There was an error with your form. Please double check your information.')
 
     else:
         bag = request.session.get('bag', {})
@@ -120,8 +126,8 @@ def checkout(request):
         order_form = OrderForm()
 
         if not stripe_public_key:
-            messages.warning(request, 'Stripe public key is missing. \
-                Did you forget to set it in your environment?')
+            messages.warning(request, 'Stripe public key is missing. '
+                'Did you forget to set it in your environment?')
 
         template = 'checkout/checkout.html'
         context = {
@@ -137,6 +143,7 @@ def checkout_success(request, order_number):
     """ Handle successful checkouts """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+
     messages.success(request, f'Order successfully processed! '
         f'Your order number is {order_number}. A confirmation email will be sent to {order.email}.')
 
