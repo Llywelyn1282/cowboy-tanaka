@@ -5,7 +5,7 @@ from .models import News
 def all_news(request):
     """ A view to show all news, including sorting and search queries """
 
-    news = News.objects.all()
+    news = News.objects.all().order_by('-date')
 
     context = {
         'news': news,

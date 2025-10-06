@@ -2,71 +2,44 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
+<div class="container header-container">
+  <div class="row">
+    <div class="col"></div>
+  </div>
+</div>
 {% endblock %}
 
 {% block content %}
-    <div class="content-container">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col text-center mt-3">
-                <h2 class="logo-font">news</h2>
-                <br>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-4 offset-1">
-                <div class="row mt-1 mb-2"></div>
-                <div class="row">
-                    {% for news in news %}
-                        <div class="col-10">
-                            <div class=" h-100 border-0">
-                                {% if news.image %}
-                                <a href="{% url 'post_detail' news.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ news.image.url }}" alt="{{ news.title }}">
-                                </a>
-                                {% else %}
-                                <a href="{% url 'post_detail' news.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ news.title }}">
-                                </a>
-                                {% endif %}
-                                <div class="pb-0">
-                                    <p class="mb-0">{{ news.title }}</p>
-                                </div>
-                                <div class="pt-0 border-0 text-left">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="lead mb-0 text-left">{{ news.excerpt }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {% if forloop.counter|divisibleby:1 %}
-                            <div class="col-12 d-sm-none mb-5">
-                            </div>
-                        {% endif %}                        
-                        {% if forloop.counter|divisibleby:2 %}
-                            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                            </div>
+<div class="content-container">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col text-center mt-3">
+        <h2 class="logo-heading">news</h2>
+        <br />
+      </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            {% for news in news %}
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <div class="news-item p-2">
+                    <a href="{% url 'post_detail' news.id %}">
+                        {% if news.image %}
+                            <img class="img-fluid rounded" src="{{ news.image.url }}" alt="{{ news.title }}">
+                        {% else %}
+                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ news.title }}">
                         {% endif %}
-                        {% if forloop.counter|divisibleby:3 %}
-                            <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                            </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:4 %}
-                            <div class="col-12 d-none d-xl-block mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
+                    </a>
+                    <div class="pt-2">
+                        <h5 class="mb-1">{{ news.title }}</h5>
+                        <p class="text-muted mb-1">{{ news.excerpt }}</p>
+                        <a href="{% url 'post_detail' news.id %}" class="small">Read More →</a>
+                    </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
-    </div>
+</div>
 {% endblock %}
