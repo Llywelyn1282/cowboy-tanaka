@@ -59,6 +59,9 @@ INSTALLED_APPS = [
     # other
 
     'crispy_forms',
+    'crispy_bootstrap5',
+    'storages',
+
 ]
 
 MIDDLEWARE = [
@@ -73,7 +76,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'cowboy_tanaka.urls'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 TEMPLATES = [
     {
