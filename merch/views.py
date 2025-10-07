@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
+from django.db.models.functions import Lower
 from .models import Merch, Category
 from .forms import MerchForm
 
@@ -61,6 +62,30 @@ def add_merch(request):
     template = 'merch/add_merch.html'
     context = {
         'form': form,
+    }
+
+    return render(request, template, context)
+
+
+def edit_merch(request, product_id):
+    """ Edit a product in the store """
+    merch = get_object_or_404(Merch, pk=product_id)
+    if request.method == 'POST':
+        form = MerchForm(request.POST, request.FILES, instance=merch)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated merch!')
+            return redirect(reverse('merch_detail', args=[merch.id]))
+        else:
+            messages.error(request, 'Failed to update merch. Please ensure the form is valid.')
+    else:
+        form = MerchForm(instance=merch)
+        messages.info(request, f'You are editing {merch.name}')
+
+    template = 'merch/edit_merch.html'
+    context = {
+        'form': form,
+        'merch': merch,
     }
 
     return render(request, template, context)

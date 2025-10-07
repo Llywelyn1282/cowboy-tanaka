@@ -120,6 +120,9 @@ Python
 | Bug | Solution |
 |------|-----------|
 
+issue with all auth button
+issue with country box
+
 
 ### Unfixed Bugs
 
