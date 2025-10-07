@@ -118,7 +118,6 @@ def checkout(request):
                     return redirect(reverse('view_bag'))
 
             order.order_total = order_total
-            order.delivery_cost = Decimal('0.00')
             order.grand_total = order_total + order.delivery_cost
             order.save()
 
