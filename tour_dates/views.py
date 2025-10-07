@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from .models import Tour_Dates
 from .forms import TourDateForm
 from django.contrib import messages
@@ -27,9 +28,13 @@ def event_detail(request, tour_dates_id):
 
     return render(request, 'tour_dates/event_detail.html', context)
 
-
+@login_required
 def add_tour_dates(request):
     """ Add a product to the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = TourDateForm(request.POST, request.FILES)
         if form.is_valid():
@@ -48,9 +53,13 @@ def add_tour_dates(request):
 
     return render(request, template, context)
 
-
+@login_required
 def edit_tour_dates(request, tour_dates_id):
     """ Edit a tour_date in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     tour_dates = get_object_or_404(Tour_Dates, pk=tour_dates_id)
     if request.method == 'POST':
         form = TourDateForm(request.POST, request.FILES, instance=tour_dates)
@@ -72,9 +81,13 @@ def edit_tour_dates(request, tour_dates_id):
 
     return render(request, template, context)
 
-
+@login_required
 def delete_tour_dates(request, tour_dates_id):
     """ Delete a tour date item from the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     tour_dates = get_object_or_404(Tour_Dates, pk=tour_dates_id)
     tour_dates.delete()
     messages.success(request, 'Tour date deleted!')
