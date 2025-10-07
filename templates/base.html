@@ -85,7 +85,8 @@
               <div class="dropdown-menu border-0" aria-labelledby="user-options">
                 {% if request.user.is_authenticated %}
                 {% if request.user.is_superuser %}
-                <a href="" class="dropdown-item logo-heading-blk">product management</a>
+                <a href="{% url 'add_merch' %}" class="dropdown-item logo-heading-blk">merch management</a>
+                <a href="{% url 'add_tour_dates' %}" class="dropdown-item logo-heading-blk">tour date management</a>
                 {% endif %}
                 <a href="{% url 'profile' %}" class="dropdown-item logo-heading-blk">my profile</a>
                 <a href="{% url 'account_logout' %}" class="dropdown-item logo-heading-blk">logout</a>

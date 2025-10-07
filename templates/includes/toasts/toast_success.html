@@ -23,7 +23,9 @@
                             {% if item.item_type == 'merch' and item.merch.image %}
                                 <img class="w-100" src="{{ item.merch.image.url }}" alt="{{ item.merch.name }}">
                             {% elif item.item_type == 'tour' and item.tour_dates.image %}
-                                <img class="w-100" src="{{ item.tour_dates.image.url }}" alt="{{ item.tour_dates.title }}">
+                                <img class="w-100" src="{{ item.tour_dates.image.url }}" alt="{{ item.tour_dates.venue }}">
+                            {% else %}
+                                <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="No Image">   
                             {% endif %}
                         </div>
                         <div class="col-9">

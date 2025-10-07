@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .models import Tour_Dates
 from .forms import TourDateForm
+from django.contrib import messages
 
 
 def all_tour_dates(request):
@@ -29,7 +30,17 @@ def event_detail(request, tour_dates_id):
 
 def add_tour_dates(request):
     """ Add a product to the store """
-    form = TourDateForm()
+    if request.method == 'POST':
+        form = TourDateForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added tour date!')
+            return redirect(reverse('add_tour_dates'))
+        else:
+            messages.error(request, 'Failed to add tour date. Please ensure the form is valid.')
+    else:
+        form = TourDateForm()
+        
     template = 'tour_dates/add_tour_dates.html'
     context = {
         'form': form,

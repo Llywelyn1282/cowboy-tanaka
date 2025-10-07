@@ -47,7 +47,17 @@ def merch_detail(request, merch_id):
 
 def add_merch(request):
     """ Add a product to the store """
-    form = MerchForm()
+    if request.method == 'POST':
+        form = MerchForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added merch!')
+            return redirect(reverse('add_merch'))
+        else:
+            messages.error(request, 'Failed to add merch. Please ensure the form is valid.')
+    else:
+        form = MerchForm()
+        
     template = 'merch/add_merch.html'
     context = {
         'form': form,
