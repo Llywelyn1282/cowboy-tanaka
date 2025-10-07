@@ -57,7 +57,7 @@ def add_merch(request):
     if request.method == 'POST':
         form = MerchForm(request.POST, request.FILES)
         if form.is_valid():
-            merch=form.save()
+            merch = form.save()
             messages.success(request, 'Successfully added merch item!')
             return redirect(reverse('merch_detail', args=[merch.id]))
         else:

@@ -28,6 +28,7 @@ def event_detail(request, tour_dates_id):
 
     return render(request, 'tour_dates/event_detail.html', context)
 
+
 @login_required
 def add_tour_dates(request):
     """ Add a product to the store """
@@ -53,6 +54,7 @@ def add_tour_dates(request):
 
     return render(request, template, context)
 
+
 @login_required
 def edit_tour_dates(request, tour_dates_id):
     """ Edit a tour_date in the store """
@@ -71,7 +73,7 @@ def edit_tour_dates(request, tour_dates_id):
             messages.error(request, 'Failed to update tour date. Please ensure the form is valid.')
     else:
         form = TourDateForm(instance=tour_dates)
-        messages.info(request, f'You are editing {tour_dates.name}')
+        messages.info(request, f'You are editing {tour_dates.venue}, {tour_dates.location}')
 
     template = 'tour_dates/edit_tour_dates.html'
     context = {
