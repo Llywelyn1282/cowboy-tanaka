@@ -47,15 +47,15 @@ def merch_detail(request, merch_id):
 
 
 def add_merch(request):
-    """ Add a product to the store """
+    """ Add a merch item to the store """
     if request.method == 'POST':
         form = MerchForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Successfully added merch!')
-            return redirect(reverse('add_merch'))
+            merch=form.save()
+            messages.success(request, 'Successfully added merch item!')
+            return redirect(reverse('merch_detail', args=[merch.id]))
         else:
-            messages.error(request, 'Failed to add merch. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add merch item. Please ensure the form is valid.')
     else:
         form = MerchForm()
         
@@ -68,16 +68,16 @@ def add_merch(request):
 
 
 def edit_merch(request, product_id):
-    """ Edit a product in the store """
+    """ Edit a merch item in the store """
     merch = get_object_or_404(Merch, pk=product_id)
     if request.method == 'POST':
         form = MerchForm(request.POST, request.FILES, instance=merch)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Successfully updated merch!')
+            messages.success(request, 'Successfully updated merch item!')
             return redirect(reverse('merch_detail', args=[merch.id]))
         else:
-            messages.error(request, 'Failed to update merch. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update merch item. Please ensure the form is valid.')
     else:
         form = MerchForm(instance=merch)
         messages.info(request, f'You are editing {merch.name}')
@@ -89,3 +89,11 @@ def edit_merch(request, product_id):
     }
 
     return render(request, template, context)
+
+
+def delete_merch(request, merch_id):
+    """ Delete a merch item from the store """
+    merch = get_object_or_404(Merch, pk=merch_id)
+    merch.delete()
+    messages.success(request, 'Merch item deleted!')
+    return redirect(reverse('merch'))

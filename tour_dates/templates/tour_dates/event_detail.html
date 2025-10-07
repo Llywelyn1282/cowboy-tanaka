@@ -32,6 +32,12 @@
                     <p class="lead mb-0 text-left font-weight-bold">{{ tour_dates.location }} | {{ tour_dates.date }}</p>
                     <p> with support from {{ tour_dates.support_act}} </p>
                     <p>£{{ tour_dates.price}} </p>
+                    {% if request.user.is_superuser %}
+                        <small class="ml-3">
+                            <a href="{% url 'edit_tour_dates' tour_dates.id %}">edit</a> | 
+                            <a class="text-danger" href="{% url 'delete_tour_dates' tour_dates.id %}">delete</a>
+                        </small>
+                    {% endif %}
                     <form action="{% url 'bag:add_to_bag' 'tour' tour_dates.id %}" method="post">
                         {% csrf_token %}
                         <div class="form-row">

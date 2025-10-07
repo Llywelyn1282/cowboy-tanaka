@@ -33,9 +33,9 @@ def add_tour_dates(request):
     if request.method == 'POST':
         form = TourDateForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            tour_dates = form.save()
             messages.success(request, 'Successfully added tour date!')
-            return redirect(reverse('add_tour_dates'))
+            return redirect(reverse('event_detail', args=[tour_dates.id]))
         else:
             messages.error(request, 'Failed to add tour date. Please ensure the form is valid.')
     else:
@@ -49,9 +49,9 @@ def add_tour_dates(request):
     return render(request, template, context)
 
 
-def edit_tour_dates(request, product_id):
+def edit_tour_dates(request, tour_dates_id):
     """ Edit a tour_date in the store """
-    tour_dates = get_object_or_404(Tour_Dates, pk=product_id)
+    tour_dates = get_object_or_404(Tour_Dates, pk=tour_dates_id)
     if request.method == 'POST':
         form = TourDateForm(request.POST, request.FILES, instance=tour_dates)
         if form.is_valid():
@@ -71,3 +71,11 @@ def edit_tour_dates(request, product_id):
     }
 
     return render(request, template, context)
+
+
+def delete_tour_dates(request, tour_dates_id):
+    """ Delete a tour date item from the store """
+    tour_dates = get_object_or_404(Tour_Dates, pk=tour_dates_id)
+    tour_dates.delete()
+    messages.success(request, 'Tour date deleted!')
+    return redirect(reverse('tour_dates'))

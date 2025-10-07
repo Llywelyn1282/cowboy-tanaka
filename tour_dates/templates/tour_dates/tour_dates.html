@@ -37,6 +37,12 @@
           buy tickets
         </a>
       </div>
+      {% if request.user.is_superuser %}
+        <small class="ml-3">
+          <a href="{% url 'edit_tour_dates' tour_dates.id %}">edit</a> | 
+          <a class="text-danger" href="{% url 'delete_tour_dates' tour_dates.id %}">delete</a>
+        </small>
+      {% endif %}
     </div>
     {% endfor %}
   </div>
