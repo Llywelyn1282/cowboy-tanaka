@@ -1,0 +1,80 @@
+[
+{
+  "model": "tour_dates.tour_dates",
+  "pk": 1,
+  "fields": {
+    "image_url": null,
+    "image": "tickets.jpg",
+    "date": "2025-10-10",
+    "venue": "The Exchange",
+    "location": "Bristol",
+    "support_act": "Dog's Blood",
+    "price": "40.00"
+  }
+},
+{
+  "model": "tour_dates.tour_dates",
+  "pk": 2,
+  "fields": {
+    "image_url": null,
+    "image": "tickets_ruMufZk.jpg",
+    "date": "2025-10-11",
+    "venue": "Ronnie Scotts",
+    "location": "London",
+    "support_act": "Black Pope",
+    "price": "40.00"
+  }
+},
+{
+  "model": "tour_dates.tour_dates",
+  "pk": 3,
+  "fields": {
+    "image_url": null,
+    "image": "tickets_fwYcDze.jpg",
+    "date": "2025-10-14",
+    "venue": "SWG3",
+    "location": "Glasgow",
+    "support_act": "The Second Sons",
+    "price": "40.00"
+  }
+},
+{
+  "model": "tour_dates.tour_dates",
+  "pk": 4,
+  "fields": {
+    "image_url": null,
+    "image": "tickets_ovM29Kp.jpg",
+    "date": "2025-10-13",
+    "venue": "The Cavern Club",
+    "location": "Liverpool",
+    "support_act": "Maul Pucartney",
+    "price": "40.00"
+  }
+},
+{
+  "model": "tour_dates.tour_dates",
+  "pk": 5,
+  "fields": {
+    "image_url": null,
+    "image": "tickets_skz1ZK4.jpg",
+    "date": "2025-10-16",
+    "venue": "Brudnell Social Club",
+    "location": "Leeds",
+    "support_act": "Slugs",
+    "price": "40.00"
+  }
+},
+{
+  "model": "tour_dates.tour_dates",
+  "pk": 6,
+  "fields": {
+    "image_url": null,
+    "image": "tickets_Lk4FPXH.jpg",
+    "date": "2025-10-17",
+    "venue": "The Barrowland Ballroom",
+    "location": "Glasgow",
+    "support_act": "Big Daddy",
+    "price": "40.00"
+  }
+}
+]

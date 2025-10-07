@@ -1,0 +1,356 @@
+[
+{
+  "model": "merch.category",
+  "pk": 1,
+  "fields": {
+    "name": "media",
+    "friendly_name": "Media"
+  }
+},
+{
+  "model": "merch.category",
+  "pk": 2,
+  "fields": {
+    "name": "clothing",
+    "friendly_name": "Clothing"
+  }
+},
+{
+  "model": "merch.category",
+  "pk": 3,
+  "fields": {
+    "name": "accessories",
+    "friendly_name": "Accessories"
+  }
+},
+{
+  "model": "merch.merch",
+  "pk": 3,
+  "fields": {
+    "category": 1,
+    "sku": "ep1",
+    "name": "Cowboy Tanaka 7\" EP",
+    "description": "Cowboy TanakaÆs debut EP is a wild, intricate ride through the bandÆs signature blend of math rock precision and indie emotion. Packed with jagged guitar lines, shifting rhythms, and bursts of melodic chaos, it captures the energy of late-night jam sessions and city-light introspection. Every track feels alive ù unpredictable yet deeply human. This limited-run EP is pressed with care and designed for fans who crave sound that challenges and inspires. Whether youÆre a longtime math rock devotee or new to the scene, Cowboy TanakaÆs first release is a must-have artifact from a band redefining indie experimentation.",
+    "price": "14.99",
+    "has_sizes": false,
+    "rating": "4.60",
+    "image_url": null,
+    "image": "EP1.jpg"
+  }
+},
+{
+  "model": "merch.merch",
+  "pk": 4,
+  "fields": {
+    "category": 1,
+    "sku": "lp1",
+    "name": "Black Horizon 2LP - Black",
+    "description": "Cowboy Tanaka û Black Horizon marks the bandÆs explosive leap from cult math-rock innovators to full-fledged sonic architects. Across ten meticulously crafted tracks, they balance intricate polyrhythms with sweeping emotional depth, pushing their sound into darker, more cinematic territory. Angular riffs collide with hypnotic basslines and dynamic shifts that keep listeners on edge yet deeply immersed. Black Horizon captures the chaos and beauty of motion ù a journey through uncertainty, tension, and release. Pressed on high-quality vinyl and wrapped in striking artwork, this album isnÆt just music ù itÆs an experience built for those who live between noise and nuance.",
+    "price": "24.99",
+    "has_sizes": false,
+    "rating": "4.80",
+    "image_url": null,
+    "image": "lp1.jpg"
+  }
+},
+{
+  "model": "merch.merch",
+  "pk": 5,
+  "fields": {
+    "category": 1,
+    "sku": "lp2",
+    "name": "Rags 2LP - Black",
+    "description": "Cowboy Tanaka û Rags finds the band stretching their math-rock roots into raw, expressive territory. Where Black Horizon was expansive and cinematic, Rags is intimate, urgent, and unfiltered ù a collection of songs stitched together from chaos, groove, and heart. The bandÆs signature off-kilter rhythms and angular guitars return, but this time with a looser, almost improvised energy. Themes of exhaustion, resilience, and rebirth ripple through every track, creating an album that feels both restless and deeply human. Pressed on limited-edition vinyl, Rags is a testament to Cowboy TanakaÆs evolution ù messy, beautiful, and defiantly alive.",
+    "price": "24.99",
+    "has_sizes": false,
+    "rating": "4.20",
+    "image_url": null,
+    "image": "lp2.jpg"
+  }
+},
+{
+  "model": "merch.merch",
+  "pk": 6,
+  "fields": {
+    "category": 1,
+    "sku": "lp3",
+    "name": "Gutshot 2LP - Black",
+    "description": "Cowboy Tanaka û Gutshot is the bandÆs boldest and most visceral statement yet ù a razor-edged blend of precision and chaos that hits straight to the core. After the introspection of Rags, Gutshot roars with urgency, channeling raw emotion through labyrinthine riffs, shifting tempos, and explosive crescendos. ItÆs math rock at its most physical and cathartic ù a soundtrack for the beautiful mess of survival. Each track feels like a punch and a confession, crafted with both fury and finesse. Pressed on heavyweight vinyl with striking minimalist artwork, Gutshot cements Cowboy Tanaka as masters of controlled disorder.",
+    "price": "24.99",
+    "has_sizes": false,
+    "rating": "4.90",
+    "image_url": null,
+    "image": "lp3.jpg"
+  }
+},
+{
+  "model": "merch.merch",
+  "pk": 7,
+  "fields": {
+    "category": 2,
+    "sku": "tsh1",
+    "name": "Woodcut Logo T-Shirt in White",
+    "description": "Celebrate Cowboy Tanaka in minimalist style with this white t-shirt featuring the bandÆs iconic woodcut logo. The striking black design stands out against the clean white fabric, capturing the handcrafted, intricate energy that mirrors the bandÆs math-rock sound. Made from soft, high-quality cotton, the t-shirt offers a comfortable, breathable fit ideal for gigs, casual wear, or long listening sessions. Its timeless design makes it a versatile staple, pairing effortlessly with jackets, jeans, or hoodies. A subtle yet powerful statement, this t-shirt lets fans carry the spirit of Cowboy TanakaÆs artistry wherever they go.",
+    "price": "30.00",
+    "has_sizes": true,
+    "rating": "4.30",
+    "image_url": null,
+    "image": "woodcut_t_white.jpg"
+  }
+},
+{
+  "model": "merch.merch",
+  "pk": 8,
+  "fields": {
+    "category": 2,
+    "sku": "tsh2",
+    "name": "Black Horizon T-Shirt in Black",
+    "description": "Immerse yourself in Cowboy TanakaÆs sonic world with this black t-shirt featuring the striking Black Horizon album cover. The bold, atmospheric artwork captures the tension, depth, and intricate energy of the bandÆs signature math-rock sound, turning a classic tee into a piece of wearable art. Made from soft, durable cotton, it offers a comfortable fit for gigs, rehearsals, or everyday wear. The high-contrast design pops against the black fabric, making it a standout statement for fans and collectors alike. Showcase your love for Cowboy Tanaka and carry the spirit of Black Horizon wherever you go.",
+    "price": "30.00",
+    "has_sizes": true,
+    "rating": "3.80",
+    "image_url": null,
+    "image": "cowboypanel_tshirt.jpg"
+  }
+},
+{
+  "model": "merch.merch",
+  "pk": 9,
+  "fields": {
+    "category": 2,
+    "sku": "tsh3",
+    "name": "Rags T-Shirt in Grey",
+    "description": "Show your love for Cowboy Tanaka with this grey t-shirt featuring the evocative Rags album cover. The artworkÆs raw, textured aesthetic reflects the bandÆs intricate math-rock rhythms and emotional intensity, making it more than just a tee ù itÆs a piece of their story. Crafted from soft, high-quality cotton, the shirt offers a comfortable, breathable fit for gigs, rehearsals, or everyday wear. The subtle grey fabric lets the striking album design stand out while keeping it versatile and wearable. Perfect for fans who want to carry the spirit of Rags and Cowboy TanakaÆs artistry wherever they go.",
+    "price": "30.00",
+    "has_sizes": true,
+    "rating": "3.80",
+    "image_url": null,
+    "image": "flag_t_shirt.jpg"
+  }
+},
+{
+  "model": "merch.merch",
+  "pk": 10,
+  "fields": {
+    "category": 2,
+    "sku": "tsh4",
+    "name": "Sasha T-Shirt in Black",
+    "description": "Rock the energy of Cowboy Tanaka with this black t-shirt featuring a striking image of Sasha on stage. The design captures the lead singerÆs intensity, movement, and charisma, reflecting the raw, intricate energy that defines the bandÆs math-rock sound. Printed on soft, high-quality cotton, the t-shirt offers a comfortable fit and durable wear, making it perfect for gigs, everyday outfits, or jam sessions. Its bold, dynamic artwork turns a classic black tee into a statement piece for fans. Show your love for Sasha and Cowboy Tanaka with this iconic, wearable tribute to their live presence and artistry.",
+    "price": "30.00",
+    "has_sizes": true,
+    "rating": "4.70",
+    "image_url": null,
+    "image": "sasha_on_stage_tshirt.jpg"
+  }
+},
+{
+  "model": "merch.merch",
+  "pk": 11,
+  "fields": {
+    "category": 2,
+    "sku": "tsh5",
+    "name": "Gutshot Cowboy T-Shirt in White",
+    "description": "Step into the world of Cowboy Tanaka with this white t-shirt featuring the iconic cowboy from the Gutshot album cover. The bold, detailed design captures the raw, edgy energy and intricate chaos of the bandÆs math-rock sound, turning a simple tee into a striking piece of wearable art. Made from soft, high-quality cotton, it offers a comfortable and durable fit for gigs, casual wear, or late-night listening sessions. The crisp white fabric makes the vivid artwork pop, creating a timeless, versatile look. Perfect for fans who want to carry the spirit of Gutshot everywhere.",
+    "price": "30.00",
+    "has_sizes": true,
+    "rating": "4.90",
+    "image_url": null,
+    "image": "cowboyonred_tshirt.jpg"
+  }
+},
+{
+  "model": "merch.merch",
+  "pk": 12,
+  "fields": {
+    "category": 2,
+    "sku": "hde1",
+    "name": "Woodcut Hoodie in Black",
+    "description": "Stay warm and showcase your love for Cowboy Tanaka with this black hoodie featuring the bandÆs striking woodcut logo. The bold, hand-carved design captures the intricate energy and raw emotion of their math-rock sound, turning a classic hoodie into a statement piece. Made from soft, high-quality cotton blend, it offers cozy comfort and durability for everyday wear, gigs, or late-night jam sessions. With a roomy hood, front pocket, and relaxed fit, itÆs both practical and stylish. Minimalist yet powerful, this hoodie is perfect for fans who want to carry Cowboy TanakaÆs artistry wherever they go.",
+    "price": "50.00",
+    "has_sizes": true,
+    "rating": "4.20",
+    "image_url": null,
+    "image": "woodcut_hoodie.jpg"
+  }
+},
+{
+  "model": "merch.merch",
+  "pk": 13,
+  "fields": {
+    "category": 2,
+    "sku": "hde2",
+    "name": "Sasha Hoodie in Black",
+    "description": "Bring the stage energy home with this black hoodie featuring an electrifying image of Sasha, lead singer of Cowboy Tanaka, captured mid-performance. The dynamic design showcases SashaÆs intensity and charisma, translating the raw, intricate energy of the bandÆs math-rock sound into wearable art. Crafted from a soft, durable cotton blend, the hoodie offers warmth, comfort, and long-lasting quality ù perfect for gigs, rehearsals, or everyday wear. With a spacious hood, front pocket, and relaxed fit, itÆs both functional and stylish. This hoodie is a must-have for fans who want to celebrate Sasha and Cowboy TanakaÆs powerful live presence.",
+    "price": "50.00",
+    "has_sizes": true,
+    "rating": "4.40",
+    "image_url": null,
+    "image": "sasha_hoodie.jpg"
+  }
+},
+{
+  "model": "merch.merch",
+  "pk": 15,
+  "fields": {
+    "category": 2,
+    "sku": "bea1",
+    "name": "Woodcut Beanie in Black",
+    "description": "Stay warm while showing your love for Cowboy Tanaka with this sleek black beanie featuring the bandÆs iconic woodcut logo. The minimalist design captures the raw, hand-crafted energy of their math-rock sound, translating it into a bold, wearable statement. Made from soft, durable knit, the beanie offers a comfortable fit for all-day wear ù whether at gigs, rehearsals, or just out and about. The subtle yet striking logo adds a touch of indie edge to any outfit, making it a perfect accessory for fans who want to carry a piece of Cowboy TanakaÆs artistry wherever they go.",
+    "price": "20.00",
+    "has_sizes": true,
+    "rating": "3.90",
+    "image_url": null,
+    "image": "beanie_black.jpg"
+  }
+},
+{
+  "model": "merch.merch",
+  "pk": 16,
+  "fields": {
+    "category": 2,
+    "sku": "bea2",
+    "name": "Logo Beanie in Blue",
+    "description": "Keep cozy in style with this blue beanie featuring the bold text logo of Cowboy Tanaka. Its clean, sharp lettering reflects the bandÆs precise and intricate math-rock aesthetic, making it a standout accessory for any fan. Crafted from soft, high-quality knit, the beanie ensures a comfortable, snug fit for everyday wear ù from chilly gig nights to casual streetwear looks. The vibrant blue color adds a fresh pop while keeping the design versatile, pairing effortlessly with jackets, hoodies, or bags. Show your love for Cowboy Tanaka with this practical, stylish piece of indie merch.",
+    "price": "20.00",
+    "has_sizes": true,
+    "rating": "4.00",
+    "image_url": null,
+    "image": "beanieblue.jpg"
+  }
+},
+{
+  "model": "merch.merch",
+  "pk": 17,
+  "fields": {
+    "category": 3,
+    "sku": "key1",
+    "name": "Woodcut Round Keyring",
+    "description": "Carry a piece of Cowboy Tanaka wherever you go with this stunning woodcut logo keyring. Etched with the bandÆs signature hand-carved design, it captures the raw, organic energy that defines their sound ù intricate, textured, and unmistakably bold. Each keyring is crafted from sustainably sourced wood, laser-cut for precision, and finished with a smooth matte seal for lasting durability. Lightweight yet solid, itÆs the perfect everyday reminder of the bandÆs blend of chaos and craftsmanship. Whether clipped to your keys, bag, or gear case, this Cowboy Tanaka keyring is more than merch ù itÆs a small token of indie defiance.",
+    "price": "10.00",
+    "has_sizes": false,
+    "rating": "3.90",
+    "image_url": null,
+    "image": "key1.jpg"
+  }
+},
+{
+  "model": "merch.merch",
+  "pk": 18,
+  "fields": {
+    "category": 3,
+    "sku": "key2",
+    "name": "Black Horizon Square Keyring",
+    "description": "Keep Cowboy TanakaÆs Black Horizon close at hand with this sleek square keyring, featuring the albumÆs iconic artwork in vivid detail. The bold design ù all sharp contrasts and atmospheric depth ù captures the tension and beauty that defined the bandÆs breakout full-length. Printed on durable, scratch-resistant acrylic with a polished metal ring, itÆs built to last through countless late-night drives and gig adventures. Compact, stylish, and unmistakably Cowboy Tanaka, this keyring is perfect for fans who want a daily reminder of the albumÆs power and precision. A small square of art ù crafted for those who live the sound.",
+    "price": "10.00",
+    "has_sizes": false,
+    "rating": "4.20",
+    "image_url": null,
+    "image": "key2.jpg"
+  }
+},
+{
+  "model": "merch.merch",
+  "pk": 19,
+  "fields": {
+    "category": 3,
+    "sku": "ptc1",
+    "name": "Rodeo Patch",
+    "description": "Ride into the wild with this rodeo-styled patch from Cowboy Tanaka, perfect for jackets, bags, or hats. Inspired by classic Western embroidery, the design fuses rustic charm with the bandÆs edgy, math-rock identity ù sharp lines, bold lettering, and dynamic imagery that echo their restless energy. Crafted from durable, high-quality threads, the patch is easy to sew or iron on, built to withstand countless gigs, adventures, and everyday wear. Whether youÆre a longtime fan or discovering the band, this patch is a wearable tribute to Cowboy TanakaÆs distinctive sound and spirit ù rugged, rebellious, and unapologetically original.",
+    "price": "15.00",
+    "has_sizes": false,
+    "rating": "4.30",
+    "image_url": null,
+    "image": "Gemini_Generated_Image_ohuiscohuiscohui.png"
+  }
+},
+{
+  "model": "merch.merch",
+  "pk": 20,
+  "fields": {
+    "category": 3,
+    "sku": "ptc2",
+    "name": "Punk Patch",
+    "description": "Show your edge with this punk-styled patch from Cowboy Tanaka, designed for fans who embrace chaos and creativity. Bold, high-contrast graphics and jagged lettering capture the bandÆs frenetic math-rock energy, making it a statement piece for jackets, bags, or hats. Crafted with durable, high-quality threads, the patch can be sewn or ironed on, ensuring it lasts through gigs, road trips, and everyday adventures. Raw, rebellious, and unmistakably Cowboy Tanaka, it channels the spirit of DIY punk culture while celebrating the bandÆs intricate rhythms and emotional intensity. Add it to your collection and wear the noise proudly",
+    "price": "15.00",
+    "has_sizes": false,
+    "rating": "4.70",
+    "image_url": null,
+    "image": "Gemini_Generated_Image_naqvxhnaqvxhnaqv.png"
+  }
+},
+{
+  "model": "merch.merch",
+  "pk": 21,
+  "fields": {
+    "category": 3,
+    "sku": "pst1",
+    "name": "A1 Group Poster",
+    "description": "Bring the energy of Cowboy Tanaka into your space with this striking A1 poster featuring the full band in an exclusive portrait. Captured in high-resolution detail, the image reflects their signature mix of intensity and precision ù a moment suspended between noise and stillness. Printed on premium matte stock, the poster highlights each memberÆs individuality while celebrating their collective chemistry. Perfect for bedrooms, studios, or rehearsal spaces, itÆs more than a print ù itÆs a statement piece for fans who live and breathe the bandÆs intricate rhythms. Bold, timeless, and unmistakably Cowboy Tanaka, this poster demands attention.",
+    "price": "7.00",
+    "has_sizes": false,
+    "rating": "4.30",
+    "image_url": null,
+    "image": "poster1.jpg"
+  }
+},
+{
+  "model": "merch.merch",
+  "pk": 22,
+  "fields": {
+    "category": 3,
+    "sku": "pst2",
+    "name": "A1 Sasha Poster",
+    "description": "Celebrate the voice behind Cowboy Tanaka with this striking A1 poster of lead singer Sasha. Captured in a dynamic, high-resolution image, the portrait reflects SashaÆs intensity, charisma, and the raw emotional energy that drives the bandÆs math-rock sound. Printed on premium matte paper, the poster brings every detail ù from subtle expressions to stage presence ù to life, making it a perfect centerpiece for any room, studio, or music corner. Whether youÆre a longtime fan or discovering the band anew, this poster is a bold, personal tribute to SashaÆs artistry and the spirit of Cowboy Tanaka.",
+    "price": "7.00",
+    "has_sizes": false,
+    "rating": "4.50",
+    "image_url": null,
+    "image": "poster2.jpg"
+  }
+},
+{
+  "model": "merch.merch",
+  "pk": 23,
+  "fields": {
+    "category": 3,
+    "sku": "pst3",
+    "name": "A1 Gutshot Poster",
+    "description": "Showcase the intensity of Cowboy TanakaÆs Gutshot with this bold A1 album cover poster. Featuring the striking artwork from their latest full-length, the design captures the albumÆs raw energy, intricate chaos, and emotional depth. Printed on premium matte paper, the poster preserves every vivid detail, from sharp contrasts to nuanced textures, making it a powerful visual companion to the bandÆs signature math-rock sound. Perfect for bedrooms, studios, or music spaces, it transforms any wall into a statement of sonic and artistic rebellion. A must-have for fans, this poster lets you carry the spirit of Gutshot wherever you display it.",
+    "price": "7.00",
+    "has_sizes": false,
+    "rating": "4.40",
+    "image_url": null,
+    "image": "poster3.jpg"
+  }
+},
+{
+  "model": "merch.merch",
+  "pk": 25,
+  "fields": {
+    "category": 3,
+    "sku": "mug1",
+    "name": "Woodcut Logo Mug",
+    "description": "Start your day with the raw energy of Cowboy Tanaka with this mug featuring the bandÆs signature woodcut logo. The striking, hand-carved design wraps elegantly around a smooth white finish, blending indie artistry with everyday function. Crafted from high-quality porcelain, itÆs both microwave and dishwasher safe ù perfect for long studio sessions, late-night listening, or quiet morning rituals. The tactile black print captures the bandÆs balance of chaos and precision, turning every sip into a moment of connection. Whether on your desk or in your kitchen, this Cowboy Tanaka mug is a minimalist tribute to intricate sound and spirit.",
+    "price": "9.00",
+    "has_sizes": false,
+    "rating": "3.60",
+    "image_url": null,
+    "image": "mug.jpg"
+  }
+},
+{
+  "model": "merch.merch",
+  "pk": 26,
+  "fields": {
+    "category": 3,
+    "sku": "bdg1",
+    "name": "3 x Cowboy Tanaka Badges",
+    "description": "Show your love for Cowboy Tanaka with this exclusive set of three enamel pin badges, each inspired by the bandÆs distinct eras ù Black Horizon, Rags, and Gutshot. Designed with sharp lines and bold colors that echo their math-rock precision, these pins capture the spirit of chaos and craft that defines the bandÆs sound. Perfect for jackets, bags, or guitar straps, each badge is durable, detailed, and made to stand out. Whether youÆre a longtime fan or new to the noise, this limited-edition pin set is a sleek, wearable tribute to Cowboy TanakaÆs ever-evolving creative energy.",
+    "price": "6.00",
+    "has_sizes": false,
+    "rating": "4.00",
+    "image_url": null,
+    "image": "badges.jpg"
+  }
+}
+]

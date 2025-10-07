@@ -1,0 +1,86 @@
+[
+{
+  "model": "news.news",
+  "pk": 2,
+  "fields": {
+    "title": "Black Horizon Out Now!",
+    "subtitle": "Cowboy Tanaka's first full length album releases today.",
+    "excerpt": "Cowboy Tanaka's debut album, Black Horizon, emerges as a compelling addition to the math rock genre, offering a fresh perspective that resonates with both aficionados and newcomers.",
+    "post": "Cowboy Tanaka's debut album, Black Horizon, emerges as a compelling addition to the math rock genre, offering a fresh perspective that resonates with both aficionados and newcomers.\r\n\r\nThe album's title track, \"Black Horizon,\" sets the tone with its intricate rhythms and dynamic shifts, encapsulating the essence of math rock. This composition exemplifies the band's technical prowess and their ability to weave complexity with emotional depth. Each track on the album showcases a meticulous balance between precision and expressiveness, a hallmark of the genre.\r\n\r\nIn the broader context of math rock, Black Horizon stands out for its innovative approach. While the genre is known for its complex time signatures and technical instrumentation, Cowboy Tanaka infuses their work with a unique energy that pushes the boundaries of traditional math rock. Their sound is a testament to the genre's evolution, blending the cerebral elements of math rock with an invigorating vitality.\r\n\r\nFor listeners seeking an album that challenges musical conventions while delivering an engaging auditory experience, Black Horizon by Cowboy Tanaka is a noteworthy exploration. It not only honors the roots of math rock but also contributes to its ongoing transformation, marking the band's arrival as a significant force in the genre.",
+    "author": "Cowboy Tanaka",
+    "date": "2019-07-01",
+    "image_url": null,
+    "image": "lp1_2Bsz2BO.jpg"
+  }
+},
+{
+  "model": "news.news",
+  "pk": 3,
+  "fields": {
+    "title": "Rags Out Now!",
+    "subtitle": "Cowboy Tanaka's second full length album releases today.",
+    "excerpt": "Cowboy Tanaka's sophomore album, Rags, marks a bold evolution in the band's sound, blending intricate math rock structures with a raw, emotional intensity that sets it apart from their debut, Black Horizon.",
+    "post": "Cowboy Tanaka's sophomore album, Rags, marks a bold evolution in the band's sound, blending intricate math rock structures with a raw, emotional intensity that sets it apart from their debut, Black Horizon.\r\n\r\nWhere Black Horizon showcased the band's technical prowess, Rags delves deeper into the emotional landscape, offering a more introspective and nuanced listening experience. The album's compositions are characterized by complex time signatures and polyrhythmic layers, yet there's a palpable sense of vulnerability and authenticity that permeates each track.\r\n\r\nThe opening track, \"Frayed Edges,\" immediately sets the tone with its dissonant guitar riffs and syncopated rhythms, gradually building into a cathartic crescendo. This track exemplifies the band's ability to balance technical complexity with emotional depth, a theme that runs throughout the album.\r\n\r\n\"Tattered Dreams,\" another standout track, features a haunting melody underpinned by a driving rhythm section, creating a sense of urgency and longing. The interplay between the instruments is masterful, with each member contributing to the overall narrative without overshadowing the others.\r\n\r\nRags is a testament to Cowboy Tanaka's growth as musicians and storytellers. The album not only showcases their technical abilities but also their capacity to convey complex emotions through their music. It's an album that invites listeners to embark on a journey of self-reflection and discovery, making it a significant contribution to the math rock genre.",
+    "author": "Cowboy Tanaka",
+    "date": "2021-10-07",
+    "image_url": null,
+    "image": "lp2_Gb5xsAw.jpg"
+  }
+},
+{
+  "model": "news.news",
+  "pk": 4,
+  "fields": {
+    "title": "Gutshot Out Now!",
+    "subtitle": "Cowboy Tanaka's third full length album releases today.",
+    "excerpt": "Cowboy Tanaka's third album, Gutshot, represents a significant departure from their earlier work, embracing a more experimental and raw approach to math rock.",
+    "post": "Cowboy Tanaka's third album, Gutshot, represents a significant departure from their earlier work, embracing a more experimental and raw approach to math rock. Released under the Schematic Music Company label, the album showcases the band's growth and willingness to push musical boundaries.\r\n\r\nThe album's artwork features a stylized cowboy character, possibly a nod to the band's name, adding a visual element that complements the music's themes. While the specific tracklist is not detailed, the album is noted for its complex time signatures and intricate guitar work, characteristic of the math rock genre.\r\n\r\nGutshot has been well-received by fans and critics alike, praised for its innovative sound and the band's ability to evolve while staying true to their roots. The album's unique blend of technical proficiency and emotional depth offers a compelling listening experience for those seeking something beyond the conventional.\r\n\r\nFor listeners interested in exploring the evolution of math rock, Gutshot by Cowboy Tanaka is a noteworthy addition to the genre's landscape. Its experimental nature and bold artistic choices make it a standout release for 2025.",
+    "author": "Cowboy Tanaka",
+    "date": "2025-10-06",
+    "image_url": null,
+    "image": "lp3_8let6XY.jpg"
+  }
+},
+{
+  "model": "news.news",
+  "pk": 5,
+  "fields": {
+    "title": "Cowboy Tanaka's Rags East Asia Tour",
+    "subtitle": "Big in Japan... and South Korea... and Taiwan.",
+    "excerpt": "Indie math rock band Cowboy Tanaka is preparing to embark on their highly anticipated inaugural East Asia tour, celebrating their sophomore album, Rags.",
+    "post": "Indie math rock band Cowboy Tanaka is preparing to embark on their highly anticipated inaugural East Asia tour, celebrating their sophomore album, Rags. This upcoming tour promises to be a major milestone in the band's journey, offering audiences across the region a chance to experience their intricate rhythms and emotive compositions live for the first time.\r\n\r\nThe tour is set to kick off in Japan, with performances planned in Tokyo and Osaka. Fans can expect the bandÆs signature fusion of complex time signatures and raw emotion, showcasing their ability to blend technical prowess with heartfelt storytelling. Local audiences are eagerly anticipating what promises to be electrifying shows.\r\n\r\nFollowing Japan, Cowboy Tanaka will bring their unique sound to South Korea, with a highlight performance in Seoul. The band looks forward to connecting with the vibrant South Korean music scene, sharing the intricate guitar work and dynamic compositions that define Rags with a new audience.\r\n\r\nThe tour will wrap up with a series of performances in Taiwan, where the band hopes to reach an even broader audience. Through their instrumental storytelling, Cowboy Tanaka aims to transcend language barriers and leave a lasting impression on fans across East Asia.\r\n\r\nIn addition to live performances, the band plans to engage in cultural exchanges with local musicians throughout the tour. These interactions are expected to enrich their understanding of East Asian musical traditions and inspire future compositions that blend math rock with regional influences.\r\n\r\nThis East Asia tour represents more than just a series of concertsùit is a testament to Cowboy TanakaÆs dedication to musical exploration and cultural connection. Fans across the region can look forward to an unforgettable experience as the band continues to expand their global presence, leaving everyone eager to see what comes next.",
+    "author": "Cowboy Tanaka",
+    "date": "2022-04-07",
+    "image_url": null,
+    "image": "sasha_on_stage_copy.jpg"
+  }
+},
+{
+  "model": "news.news",
+  "pk": 6,
+  "fields": {
+    "title": "Cowboy Tanaka Gutshot UK Tour",
+    "subtitle": "A victory lap around the venues that made the band.",
+    "excerpt": "Indie math rock band Cowboy Tanaka is set to embark on their highly anticipated UK tour in support of their third album, Gutshot.",
+    "post": "Indie math rock band Cowboy Tanaka is set to embark on their highly anticipated UK tour in support of their third album, Gutshot. This marks a significant milestone in the band's journey, offering fans across the UK an opportunity to experience their intricate rhythms and emotive compositions live for the first time.\r\n\r\nA Journey Through the UK\r\n\r\nThe tour will commence with electrifying performances in major cities such as London, Manchester, and Glasgow. Fans can expect the band's signature fusion of complex time signatures and raw emotion, showcasing their ability to blend technical prowess with heartfelt storytelling. The UK audience is eagerly anticipating what promises to be an unforgettable experience.\r\n\r\nA New Soundscape\r\n\r\nGutshot represents a departure from the band's previous work, embracing a more experimental and raw approach to math rock. The album's compositions are characterized by complex time signatures and polyrhythmic layers, yet there's a palpable sense of vulnerability and authenticity that permeates each track. This evolution in their sound is expected to resonate deeply with fans during the live performances.\r\n\r\nCultural Exchange and Musical Innovation\r\n\r\nThroughout the tour, Cowboy Tanaka plans to engage with local musicians, further enriching their understanding of the UK's musical traditions. These interactions are anticipated to influence their performances and inspire future compositions that blend elements of math rock with regional sounds.\r\n\r\nThe UK tour is more than just a series of concerts; it is a testament to Cowboy Tanaka's dedication to musical exploration and cultural connection. Fans across the UK can look forward to an unforgettable experience as the band continues to expand their global presence, leaving everyone eager to see what comes next.",
+    "author": "Cowboy Tanaka",
+    "date": "2025-08-13",
+    "image_url": null,
+    "image": "band_head_shot_copy.jpg"
+  }
+},
+{
+  "model": "news.news",
+  "pk": 7,
+  "fields": {
+    "title": "Cowboy Tanaka Launches Official Online Merch Store",
+    "subtitle": "Get yourself some nice things, you deserve it.",
+    "excerpt": "Indie math rock band Cowboy Tanaka has officially launched their online merchandise store, offering fans a curated selection of apparel, accessories, and vinyl records.",
+    "post": "Indie math rock band Cowboy Tanaka has officially launched their online merchandise store, offering fans a curated selection of apparel, accessories, and vinyl records. This marks a significant step in the band's journey, providing fans with direct access to exclusive merchandise that reflects their unique sound and aesthetic.\r\n\r\nApparel and Accessories\r\n\r\nThe store features a range of clothing items, including limited-edition T-shirts and hoodies, designed with the band's distinctive style in mind. Each piece is crafted to offer both comfort and a visual representation of Cowboy Tanaka's artistic identity. Additionally, fans can find a selection of accessories that complement the band's merchandise, allowing for a complete fan experience.\r\n\r\nVinyl Records\r\n\r\nFor audiophiles and collectors, the store offers vinyl editions of Cowboy Tanaka's albums, providing a tangible way to experience their music. The vinyl records are produced with high-quality materials, ensuring an exceptional listening experience that honors the band's intricate compositions.\r\n\r\nExclusive Merchandise\r\n\r\nIn celebration of the store's launch, Cowboy Tanaka is offering exclusive merchandise items that are only available through their online store. These limited-edition items provide fans with unique memorabilia that commemorates the band's milestones and artistic achievements.\r\n\r\nConclusion\r\n\r\nThe launch of Cowboy Tanaka's official online merch store not only provides fans with high-quality merchandise but also strengthens the connection between the band and their audience. By offering a range of products that reflect their unique style and sound, Cowboy Tanaka continues to build a dedicated and engaged fan base.",
+    "author": "Cowboy Tanaka",
+    "date": "2021-08-10",
+    "image_url": null,
+    "image": "woodcut_hoodie_ZikPaLC.jpg"
+  }
+}
+]
