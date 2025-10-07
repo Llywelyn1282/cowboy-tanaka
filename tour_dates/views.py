@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Tour_Dates
+from .forms import TourDateForm
 
 
 def all_tour_dates(request):
@@ -24,3 +25,14 @@ def event_detail(request, tour_dates_id):
     }
 
     return render(request, 'tour_dates/event_detail.html', context)
+
+
+def add_tour_dates(request):
+    """ Add a product to the store """
+    form = TourDateForm()
+    template = 'tour_dates/add_tour_dates.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)

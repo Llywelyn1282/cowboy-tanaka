@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Merch
+from .models import Merch, Category
+from .forms import MerchForm
 
 
 def all_merch(request):
@@ -42,3 +43,14 @@ def merch_detail(request, merch_id):
     }
 
     return render(request, 'merch/merch_detail.html', context)
+
+
+def add_merch(request):
+    """ Add a product to the store """
+    form = MerchForm()
+    template = 'merch/add_merch.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
