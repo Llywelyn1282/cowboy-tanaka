@@ -1,0 +1,26 @@
+#profile-update-form .form-control {
+    color: #000;
+}
+
+#profile-update-form input::placeholder {
+    color: #aab7c4;
+}
+
+#id_default_country,
+#id_default_country option:not(:first-child) {
+    color: #000;
+}
+
+#id_default_country option:first-child {
+    color: #aab7c4;
+}
+
+.profile-form-input {
+    width: 100%;
+    padding: 0.50rem;
+    border: 1px solid black;
+    border-radius: 0; /* matches rounded-0 */
+    font-size: 1rem;
+    background-color: white;
+    box-sizing: border-box;
+}
