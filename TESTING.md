@@ -123,6 +123,9 @@ Python
 | Issue with targetting allauth buttons | Fixed with more precise targetting | 
 | Favicon not displaying sitewide | Fixed incorrect href syntax |
 | Product size diplay issue in bag | Found and corrected incorrectly titled parameter names in both views and bag.html. |
+| Django secret key not hidden | Moved to env.py and linked in settings.py |
+| Admin edit function not working on merch | Found and corrected incorrectly titled parameter names in both views and urls. |
+
 issue with country box
 
 
