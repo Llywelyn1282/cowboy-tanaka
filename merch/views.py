@@ -74,13 +74,13 @@ def add_merch(request):
 
 
 @login_required
-def edit_merch(request, product_id):
+def edit_merch(request, merch_id):
     """ Edit a merch item in the store """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-    merch = get_object_or_404(Merch, pk=product_id)
+    merch = get_object_or_404(Merch, pk=merch_id)
     if request.method == 'POST':
         form = MerchForm(request.POST, request.FILES, instance=merch)
         if form.is_valid():

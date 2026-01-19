@@ -120,8 +120,11 @@ Python
 | Bug | Solution |
 |------|-----------|
 
-issue with all auth button
+| Issue with targetting allauth buttons | Fixed with more precise targetting | 
+| Favicon not displaying sitewide | Fixed incorrect href syntax |
+| Product size diplay issue in bag | Found and corrected incorrectly titled parameter names in both views and bag.html. |
 issue with country box
+
 
 
 ### Unfixed Bugs
