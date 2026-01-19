@@ -125,6 +125,7 @@ Python
 | Product size diplay issue in bag | Found and corrected incorrectly titled parameter names in both views and bag.html. |
 | Django secret key not hidden | Moved to env.py and linked in settings.py |
 | Admin edit function not working on merch | Found and corrected incorrectly titled parameter names in both views and urls. |
+| Images not displaying on deployed site | Incorrect file types assigned between AWS hosting and database. |
 
 issue with country box
 
