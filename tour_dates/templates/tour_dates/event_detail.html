@@ -47,7 +47,7 @@
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <button class="decrement-qty btn btn-black rounded-0"
-                                            data-item_id="{{ tour_dates.id }}" id="decrement-qty_{{ tour_dates.id }}">
+                                            data-item_id="{{ tour_dates.id }}" id="decrement-qty_{{ tour_dates.id }}" aria-label="Minus">
                                             <span class="icon">
                                                 <i class="fas fa-minus"></i>
                                             </span>
@@ -55,9 +55,9 @@
                                     </div>
                                     <input class="form-control qty_input" type="number" name="quantity" value="1"
                                         min="1" max="99" data-item_id="{{ tour_dates.id }}" id="id_qty_{{ tour_dates.id }}">
-                                    <div class="input-group-append">
+                                    <div class="input-group-append" aria-label="Quantity Box">
                                         <button class="increment-qty btn btn-black rounded-0"
-                                            data-item_id="{{ merch.id }}" id="increment-qty_{{ merch.id }}">
+                                            data-item_id="{{ merch.id }}" id="increment-qty_{{ merch.id }}" aria-label="Plus">
                                             <span class="icon">
                                                 <i class="fas fa-plus"></i>
                                             </span>
