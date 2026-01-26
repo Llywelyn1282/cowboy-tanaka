@@ -32,7 +32,7 @@
                         {% endif %}
                     </a>
                     <div class="pt-2">
-                        <p class="mb-1">{{ news.title }}</p>
+                        <p class="mb-1"><strong>{{ news.title }}</strong></p>
                         <p class="mb-1">{{ news.excerpt }}</p>
                         <a href="{% url 'post_detail' news.id %}">Read More →</a>
                     </div>
