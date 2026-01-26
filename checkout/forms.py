@@ -1,7 +1,5 @@
 from django import forms
 from .models import Order
-from django_countries.widgets import CountrySelectWidget
-
 
 class OrderForm(forms.ModelForm):
     class Meta:
@@ -10,11 +8,6 @@ class OrderForm(forms.ModelForm):
                   'street_address1', 'street_address2',
                   'town_or_city', 'postcode', 'country',
                   'county',)
-        widgets = {
-            'country': CountrySelectWidget(attrs={
-                'aria-label': 'Country'
-            }),
-            }
 
     def __init__(self, *args, **kwargs):
         """
