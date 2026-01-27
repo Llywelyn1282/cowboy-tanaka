@@ -43,10 +43,11 @@ def add_tour_dates(request):
             messages.success(request, 'Successfully added tour date!')
             return redirect(reverse('event_detail', args=[tour_dates.id]))
         else:
-            messages.error(request, 'Failed to add tour date. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add tour date. '
+                           'Please ensure the form is valid.')
     else:
         form = TourDateForm()
-        
+
     template = 'tour_dates/add_tour_dates.html'
     context = {
         'form': form,
@@ -70,10 +71,12 @@ def edit_tour_dates(request, tour_dates_id):
             messages.success(request, 'Successfully updated tour date!')
             return redirect(reverse('event_detail', args=[tour_dates.id]))
         else:
-            messages.error(request, 'Failed to update tour date. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update tour date. '
+                           'Please ensure the form is valid.')
     else:
         form = TourDateForm(instance=tour_dates)
-        messages.info(request, f'You are editing {tour_dates.venue}, {tour_dates.location}')
+        messages.info(request, f'You are editing {tour_dates.venue}, \
+                       {tour_dates.location}')
 
     template = 'tour_dates/edit_tour_dates.html'
     context = {
@@ -82,6 +85,7 @@ def edit_tour_dates(request, tour_dates_id):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def delete_tour_dates(request, tour_dates_id):

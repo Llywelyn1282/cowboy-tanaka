@@ -14,7 +14,6 @@ def all_news(request):
     return render(request, 'news/news.html', context)
 
 
-
 def post_detail(request, news_id):
     """ A view to show individual news post details """
 

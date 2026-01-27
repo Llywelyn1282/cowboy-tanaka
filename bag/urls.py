@@ -7,8 +7,11 @@ app_name = 'bag'
 
 urlpatterns = [
     path('', views.view_bag, name='view_bag'),
-    path('add/<str:item_type>/<int:item_id>/', views.add_to_bag, name='add_to_bag'),
-    path('adjust/<str:item_type>/<int:item_id>/', views.adjust_bag, name='adjust_bag'),
-    path('remove/<str:item_type>/<int:item_id>/', views.remove_from_bag, name='remove_from_bag')
+    path('add/<str:item_type>/<int:item_id>/',
+         views.add_to_bag, name='add_to_bag'),
+    path('adjust/<str:item_type>/<int:item_id>/',
+         views.adjust_bag, name='adjust_bag'),
+    path('remove/<str:item_type>/<int:item_id>/',
+         views.remove_from_bag, name='remove_from_bag')
 
 ]

@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Merch, Category
 
+
 class MerchAdmin(admin.ModelAdmin):
     list_display = (
         'sku',

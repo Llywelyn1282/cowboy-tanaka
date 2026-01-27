@@ -93,7 +93,7 @@ Testing was focused to ensure the following criteria were met:
 
 ### Testing User Stories
 
-| Goals                 | How are they achiemedia
+| Goals                 | How are they achieved?
 | --------------------- | ---------------------- | 
 
 
@@ -108,11 +108,41 @@ Testing was focused to ensure the following criteria were met:
 #### HTML
   - No errors were returned when passing through the official [W3C Validator](https://validator.w3.org)
 
+  Home HTML
+
   ![Home HTML Validator Results](static/media/home-validation.png)
 
-  ![About HTML Validator Results](static/media/about-validation.png)
+  Info HTML
 
-  ![Contact HTML Validator Results](static/media/contact-validation.png)
+  ![Info HTML Validator Results](static/media/info-validation.png)
+
+  News HTML
+
+  ![News HTML Validator Results](static/media/news-validation.png)
+
+  News Detail HTML
+
+  ![News Detail HTML Validator Results](static/media/newsdetail-validation.png)
+
+  Tour Dates HTML
+
+  ![Tour Dates HTML Validator Results](static/media/tourdates-validation.png)
+
+  Tour Dates Detail HTML
+
+  ![Tour Dates Detail HTML Validator Results](static/media/tourdatesdetail-validation.png)
+
+  Merch HTML
+
+  ![Merch HTML Validator Results](static/media/merch-validation.png)
+
+  Merch Detail HTML
+
+  ![Merch Detail HTML Validator Results](static/media/merchdetail-validation.png)
+
+  Bag HTML
+
+  ![Bag HTML Validator Results](static/media/bag-validation.png)
 
 #### CSS
   - No errors were found when passing through the official [Jigsaw Validator](https://jigsaw.w3.org)
@@ -144,7 +174,6 @@ Python
 - No errors were found when passing through the Code Institute Python Linter [Python Validator](https://pep8ci.herokuapp.com/)
 
 
-
 ### Fixed Bugs
 
 | Bug | Solution |
@@ -157,9 +186,6 @@ Python
 | Images not displaying on deployed site | Incorrect file types assigned between AWS hosting and database. |
 | Registration email not sending | Email not set up properply. |
 | Confirmation email not sending | WH secret incorrect and titled incorrectly. |
-
-issue with country box
-
 
 
 ### Unfixed Bugs

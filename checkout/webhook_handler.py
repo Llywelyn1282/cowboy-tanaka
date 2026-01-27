@@ -34,7 +34,7 @@ class StripeWH_Handler:
             body,
             settings.DEFAULT_FROM_EMAIL,
             [cust_email]
-        )        
+        )
 
     def handle_event(self, event):
         """Handle a generic/unknown/unexpected webhook event"""
@@ -72,8 +72,10 @@ class StripeWH_Handler:
                 profile.default_country = shipping_details.address.country
                 profile.default_postcode = shipping_details.address.postal_code
                 profile.default_town_or_city = shipping_details.address.city
-                profile.default_street_address1 = shipping_details.address.line1
-                profile.default_street_address2 = shipping_details.address.line2
+                profile.default_street_address1 = \
+                    shipping_details.address.line1
+                profile.default_street_address2 = \
+                    shipping_details.address.line2
                 profile.default_county = shipping_details.address.state
                 profile.save()
 
@@ -108,7 +110,8 @@ class StripeWH_Handler:
         if order_exists:
             self._send_confirmation_email(order)
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
+                content=f'Webhook received: {event["type"]} | SUCCESS: \
+                     Verified order already in database',
                 status=200
             )
 
@@ -135,7 +138,8 @@ class StripeWH_Handler:
             for item_id, item_data in bag_data.items():
                 try:
                     # Determine item type based on prefix (merch_# or tour_#)
-                    if isinstance(item_id, str) and item_id.startswith('tour_'):
+                    if isinstance(item_id, str) \
+                            and item_id.startswith('tour_'):
                         numeric_id = int(item_id.split('_')[1])
                         product = Tour_Dates.objects.get(id=numeric_id)
                         item_type = 'tour'
@@ -149,17 +153,22 @@ class StripeWH_Handler:
                         OrderLineItem.objects.create(
                             order=order,
                             merch=product if item_type == 'merch' else None,
-                            tour_dates=product if item_type == 'tour' else None,
+                            tour_dates=product if item_type ==
+                            'tour' else None,
                             quantity=item_data,
                         )
 
                     # Handle items with sizes (for merch)
-                    elif isinstance(item_data, dict) and 'items_by_size' in item_data:
-                        for size, quantity in item_data['items_by_size'].items():
+                    elif isinstance(item_data, dict) \
+                            and 'items_by_size' in item_data:
+                        for size, quantity in \
+                                item_data['items_by_size'].items():
                             OrderLineItem.objects.create(
                                 order=order,
-                                merch=product if item_type == 'merch' else None,
-                                tour_dates=product if item_type == 'tour' else None,
+                                merch=product if item_type ==
+                                'merch' else None,
+                                tour_dates=product if item_type ==
+                                'tour' else None,
                                 product_size=size,
                                 quantity=quantity,
                             )
@@ -168,7 +177,8 @@ class StripeWH_Handler:
                     if order:
                         order.delete()
                     return HttpResponse(
-                        content=f'Webhook received: {event["type"]} | ERROR: Item not found',
+                        content=f'Webhook received: \
+                              {event["type"]} | ERROR: Item not found',
                         status=500
                     )
 
@@ -182,7 +192,8 @@ class StripeWH_Handler:
 
         self._send_confirmation_email(order)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
+            content=f'Webhook received: \
+                {event["type"]} | SUCCESS: Created order in webhook',
             status=200
         )
 

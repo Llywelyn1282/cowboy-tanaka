@@ -12,7 +12,8 @@ def view_bag(request):
 
 def add_to_bag(request, item_type, item_id):
     """
-    Add a quantity of the specified product (merch or tour ticket) to the session bag.
+    Add a quantity of the specified product
+    (merch or tour ticket) to the session bag.
     """
     bag = request.session.get('bag', {})
     quantity = int(request.POST.get('quantity', 1))
@@ -30,17 +31,24 @@ def add_to_bag(request, item_type, item_id):
 
     if size:
         if key in bag:
-            if 'items_by_size' in bag[key] and size in bag[key]['items_by_size']:
+            if 'items_by_size' in bag[key] \
+                    and size in bag[key]['items_by_size']:
                 bag[key]['items_by_size'][size] += quantity
-                messages.success(request, f'Updated size {size.upper()} {item.name} quantity to {bag[key]["items_by_size"][size]}')
+                messages.success(
+                    request, f'Updated size {size.upper()} \
+                        {item.name} quantity to {bag[key]
+                                                 ["items_by_size"][size]}')
 
             else:
                 bag[key].setdefault('items_by_size', {})[size] = quantity
-                messages.success(request, f'Added size {size.upper()} {item.name} to your bag')
+                messages.success(request, f'Added size \
+                                 {size.upper()} {item.name} to your bag')
 
         else:
             bag[key] = {'items_by_size': {size: quantity}}
-            messages.success(request, f'Added size {size.upper()} {item.name} to your bag')
+            messages.success(request,
+                             f'Added size \
+                                  {size.upper()}{item.name} to your bag')
     else:
         if key in bag:
             bag[key] += quantity
@@ -56,7 +64,8 @@ def add_to_bag(request, item_type, item_id):
 
 
 def adjust_bag(request, item_type, item_id):
-    """ Adjust the quantity of the specified product to the specified amount """
+    """ Adjust the quantity of the specified
+      product to the specified amount """
 
     quantity = int(request.POST.get('quantity'))
     size = None

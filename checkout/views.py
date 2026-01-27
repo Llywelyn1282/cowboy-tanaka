@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import render, redirect, reverse, \
+    get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -64,16 +65,21 @@ def checkout(request):
 
             for item_id, item_data in bag.items():
                 try:
-                    if isinstance(item_data, dict) and 'item_type' in item_data:
+                    if isinstance(item_data, dict) \
+                            and 'item_type' in item_data:
                         item_type = item_data['item_type']
-                    elif isinstance(item_id, str) and item_id.startswith('tour_'):
+                    elif isinstance(item_id, str) \
+                            and item_id.startswith('tour_'):
                         item_type = 'tour'
                     else:
                         item_type = 'merch'
 
-                    numeric_id = int(item_id.split('_')[-1]) if isinstance(item_id, str) else item_id
+                    numeric_id = int(item_id.split('_')[-1]) \
+                        if isinstance(item_id, str) else item_id
 
-                    product = Merch.objects.get(pk=numeric_id) if item_type == 'merch' else Tour_Dates.objects.get(pk=numeric_id)
+                    product = Merch.objects.get(pk=numeric_id) \
+                        if item_type == 'merch' \
+                        else Tour_Dates.objects.get(pk=numeric_id)
                     price = product.price
 
                     # Merch or Tour item without sizes
@@ -83,23 +89,29 @@ def checkout(request):
 
                         order_line_item = OrderLineItem(
                             order=order,
-                            merch=product if item_type == 'merch' else None,
-                            tour_dates=product if item_type == 'tour' else None,
+                            merch=product if item_type ==
+                            'merch' else None,
+                            tour_dates=product if item_type ==
+                            'tour' else None,
                             quantity=item_data,
                             lineitem_total=line_total,
                         )
                         order_line_item.save()
 
                     # Merch item with sizes
-                    elif isinstance(item_data, dict) and 'items_by_size' in item_data:
-                        for size, quantity in item_data['items_by_size'].items():
+                    elif isinstance(item_data, dict) \
+                            and 'items_by_size' in item_data:
+                        for size, quantity in \
+                                item_data['items_by_size'].items():
                             line_total = Decimal(quantity) * price
                             order_total += line_total
 
                             order_line_item = OrderLineItem(
                                 order=order,
-                                merch=product if item_type == 'merch' else None,
-                                tour_dates=product if item_type == 'tour' else None,
+                                merch=product if item_type ==
+                                'merch' else None,
+                                tour_dates=product if item_type ==
+                                'tour' else None,
                                 product_size=size,
                                 quantity=quantity,
                                 lineitem_total=line_total,
@@ -111,7 +123,8 @@ def checkout(request):
 
                 except (Merch.DoesNotExist, Tour_Dates.DoesNotExist):
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
+                        "One of the products in your \
+                        bag wasn't found in our database. "
                         "Please call us for assistance!"
                     ))
                     order.delete()
@@ -122,15 +135,18 @@ def checkout(request):
             order.save()
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success',
+                                    args=[order.order_number]))
 
         else:
-            messages.error(request, 'There was an error with your form. Please double check your information.')
+            messages.error(request, 'There was an error with your form. \
+                           Please double check your information.')
 
     else:
         bag = request.session.get('bag', {})
         if not bag:
-            messages.error(request, "There's nothing in your bag at the moment")
+            messages.error(request,
+                           "There's nothing in your bag at the moment")
             return redirect(reverse('products'))
 
         current_bag = bag_contents(request)
@@ -180,30 +196,34 @@ def checkout_success(request, order_number):
     """ Handle successful checkouts """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-    
+
     if request.user.is_authenticated:
-            profile = UserProfile.objects.get(user=request.user)
-            # Attach the user's profile to the order
-            order.user_profile = profile
-            order.save()
+        profile = UserProfile.objects.get(user=request.user)
+        # Attach the user's profile to the order
+        order.user_profile = profile
+        order.save()
 
-            # Save the user's info
-            if save_info:
-                profile_data = {
-                    'default_phone_number': order.phone_number,
-                    'default_country': order.country,
-                    'default_postcode': order.postcode,
-                    'default_town_or_city': order.town_or_city,
-                    'default_street_address1': order.street_address1,
-                    'default_street_address2': order.street_address2,
-                    'default_county': order.county,
-                }
-                user_profile_form = UserProfileForm(profile_data, instance=profile)
-                if user_profile_form.is_valid():
-                    user_profile_form.save()
+        # Save the user's info
+        if save_info:
+            profile_data = {
+                'default_phone_number': order.phone_number,
+                'default_country': order.country,
+                'default_postcode': order.postcode,
+                'default_town_or_city': order.town_or_city,
+                'default_street_address1': order.street_address1,
+                'default_street_address2': order.street_address2,
+                'default_county': order.county,
+            }
+            user_profile_form = UserProfileForm(profile_data, instance=profile)
+            if user_profile_form.is_valid():
+                user_profile_form.save()
 
-    messages.success(request, f'Order successfully processed!  'f'Your order number is {order_number}. A confirmation email will be sent to {order.email}.')
-
+    messages.success(
+        request,
+        f'Order successfully processed! '
+        f'Your order number is {order_number}. '
+        f'A confirmation email will be sent to {order.email}.'
+    )
     if 'bag' in request.session:
         del request.session['bag']
 

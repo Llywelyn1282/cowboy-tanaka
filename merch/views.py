@@ -2,8 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Q
-from django.db.models.functions import Lower
-from .models import Merch, Category
+from .models import Merch
 from .forms import MerchForm
 
 
@@ -17,10 +16,12 @@ def all_merch(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(request,
+                               "You didn't enter any search criteria!")
                 return redirect(reverse('merch'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | \
+                Q(description__icontains=query)
             merch = merch.filter(queries)
 
     category = request.GET.get('category')
@@ -61,7 +62,9 @@ def add_merch(request):
             messages.success(request, 'Successfully added merch item!')
             return redirect(reverse('merch_detail', args=[merch.id]))
         else:
-            messages.error(request, 'Failed to add merch item. Please ensure the form is valid.')
+            messages.error(request,
+                           'Failed to add merch item. \
+                            Please ensure the form is valid.')
     else:
         form = MerchForm()
 
@@ -88,7 +91,8 @@ def edit_merch(request, merch_id):
             messages.success(request, 'Successfully updated merch item!')
             return redirect(reverse('merch_detail', args=[merch.id]))
         else:
-            messages.error(request, 'Failed to update merch item. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update merch item. '
+                                    'Please ensure the form is valid.')
     else:
         form = MerchForm(instance=merch)
         messages.info(request, f'You are editing {merch.name}')

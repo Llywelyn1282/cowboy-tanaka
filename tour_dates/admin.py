@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Tour_Dates
 
+
 class Tour_Dates_Admin(admin.ModelAdmin):
     list_display = (
         'date',

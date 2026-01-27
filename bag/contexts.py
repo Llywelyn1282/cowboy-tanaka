@@ -28,7 +28,7 @@ def bag_contents(request):
             if item_type == 'merch':
                 try:
                     merch = get_object_or_404(Merch, pk=item_id)
-                except:
+                except ValueError:
                     continue  # skip missing item
 
                 # merch without sizes
@@ -65,7 +65,7 @@ def bag_contents(request):
             elif item_type == 'tour':
                 try:
                     tour_date = get_object_or_404(Tour_Dates, pk=item_id)
-                except:
+                except ValueError:
                     continue  # skip missing item
                 subtotal = item_data * tour_date.price
                 total += subtotal
