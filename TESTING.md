@@ -58,9 +58,25 @@ Testing was focused to ensure the following criteria were met:
 
 ![News Page](static/media/news-lighthouse.png)
 
+#### __News Detail Page__
+
+![News Detail Page](static/media/newsdetail-lighthouse.png)
+
 #### __Tour Dates Page__
 
-![Tour Dates Page](static/media/tour-dates-lighthouse.png)
+![Tour Dates Page](static/media/tourdates-lighthouse.png)
+
+#### __Tickets Page__
+
+![Tickets Page](static/media/tickets-lighthouse.png)
+
+#### __Merch Page__
+
+![Merch Page](static/media/merch-lighthouse.png)
+
+#### __Merch Detail Page__
+
+![Merch Detail Page](static/media/merchdetail-lighthouse.png)
 
 #### __Sign Up Page__
 
@@ -89,7 +105,7 @@ Testing was focused to ensure the following criteria were met:
 
 ### Validator Testing 
 
-HTML
+#### HTML
   - No errors were returned when passing through the official [W3C Validator](https://validator.w3.org)
 
   ![Home HTML Validator Results](static/media/home-validation.png)
@@ -98,17 +114,31 @@ HTML
 
   ![Contact HTML Validator Results](static/media/contact-validation.png)
 
-CSS
+#### CSS
   - No errors were found when passing through the official [Jigsaw Validator](https://jigsaw.w3.org)
-  
-  ![CSS Validator Results](static/media/css-validation.png)
 
-JavaScript
+  Base CSS
+
+  ![Base CSS Validator Results](static/media/base-css-validation.png)
+
+  Profile CSS
+  
+  ![Profile CSS Validator Results](static/media/profile-css-validation.png)
+
+  Checkout CSS
+
+  ![Checkout CSS Validator Results](static/media/checkout-css-validation.png)
+
+#### JavaScript
  - No errors were found when passing through the official [JSHint Validator](https://www.jshint.com/)
-  
-  ![JavaScript Validator Results ](static/media/filters-validation.png)
 
-  ![JavaScript Validator Results ](static/media/comments-validation.png)
+  Country Field JS  
+
+  ![JavaScript Validator Results ](static/media/countryfield-js-validation.png)
+
+  Stripe Elements JS
+
+  ![JavaScript Validator Results ](static/media/stripe-elements-js-validation.png)
 
 Python
 - No errors were found when passing through the Code Institute Python Linter [Python Validator](https://pep8ci.herokuapp.com/)
@@ -119,7 +149,6 @@ Python
 
 | Bug | Solution |
 |------|-----------|
-
 | Issue with targetting allauth buttons | Fixed with more precise targetting | 
 | Favicon not displaying sitewide | Fixed incorrect href syntax |
 | Product size diplay issue in bag | Found and corrected incorrectly titled parameter names in both views and bag.html. |
