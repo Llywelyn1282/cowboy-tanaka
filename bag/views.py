@@ -35,14 +35,19 @@ def add_to_bag(request, item_type, item_id):
                     and size in bag[key]['items_by_size']:
                 bag[key]['items_by_size'][size] += quantity
                 messages.success(
-                    request, f'Updated size {size.upper()} \
-                        {item.name} quantity to {bag[key]
-                                                 ["items_by_size"][size]}')
+                    request,
+                    (
+                        f'Updated size {size.upper()} {item.name} '
+                        f'quantity to {bag[key]["items_by_size"][size]}'
+                    )
+                )
 
             else:
                 bag[key].setdefault('items_by_size', {})[size] = quantity
-                messages.success(request, f'Added size \
-                                 {size.upper()} {item.name} to your bag')
+                messages.success(
+                    request,
+                    f'Added size {size.upper()} {item.name} to your bag'
+                )
 
         else:
             bag[key] = {'items_by_size': {size: quantity}}
@@ -50,7 +55,7 @@ def add_to_bag(request, item_type, item_id):
                 request,
                 (
                     f'Updated size {size.upper()} '
-                    f'for {product.name}'
+                    f'for {item.name}'
                 )
             )
     else:
