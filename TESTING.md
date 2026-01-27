@@ -170,8 +170,13 @@ Testing was focused to ensure the following criteria were met:
 
   ![JavaScript Validator Results ](static/media/stripe-elements-js-validation.png)
 
-Python
+#### Python
 - No errors were found when passing through the Code Institute Python Linter [Python Validator](https://pep8ci.herokuapp.com/)
+
+Example
+
+  ![Python Validator Results ](static/media/pythonlinter.png)
+
 
 
 ### Fixed Bugs

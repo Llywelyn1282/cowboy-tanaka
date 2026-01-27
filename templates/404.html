@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+    <div class="content-container">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col text-center mt-3">
+                    <h2 class="logo-heading">404</h2>
+                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-4">
+                    <img src="{% static 'media/the-music.webp' %}" alt="Cowboy Tanaka">
+                </div>
+                <div class="col-12 col-lg-8">
+                    <p>Something went wrong.</p>
+                    <a class="btn shop-now-button rounded-0" href="{% url 'home' %}">Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
