@@ -47,10 +47,10 @@ class Order(models.Model):
         Update grand total each time a line item is added,
         accounting for delivery costs.
         """
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))
-        ['lineitem_total__sum'] or 0
-        self.delivery_cost = \
-            self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
+        aggregate_total = self.lineitems.aggregate(Sum('lineitem_total'))
+        self.order_total = aggregate_total['lineitem_total__sum'] or 0
+        self.delivery_cost = self.order_total * \
+            settings.STANDARD_DELIVERY_PERCENTAGE / 100
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
 
@@ -94,11 +94,11 @@ class OrderLineItem(models.Model):
         self.lineitem_total = price * self.quantity
         super().save(*args, **kwargs)
 
-        def __str__(self):
-            if self.merch:
-                return f'{self.quantity} x {self.merch.name} \
-                    (Order {self.order.order_number})'
-            elif self.tour_dates:
-                return f'{self.quantity} x {self.tour_dates.venue} \
-                    (Order {self.order.order_number})'
-            return f'Item (Order {self.order.order_number})'
+    def __str__(self):
+        if self.merch:
+            return f'{self.quantity} x {self.merch.name} \
+                (Order {self.order.order_number})'
+        elif self.tour_dates:
+            return f'{self.quantity} x {self.tour_dates.venue} \
+                (Order {self.order.order_number})'
+        return f'Item (Order {self.order.order_number})'
